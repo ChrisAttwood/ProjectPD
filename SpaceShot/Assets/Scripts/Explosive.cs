@@ -9,11 +9,15 @@ public class Explosive : MonoBehaviour, ITakeDamage
     public Effect Explosion;
     public AudioClip SoundEffect;
 
-
+    bool Exploding = false;
 
 
     public void Explode()
     {
+        if (Exploding) return;
+
+        Exploding = true;
+
         Vector2 pos = transform.position;
         var cs = Physics2D.OverlapCircleAll(pos, Blast);
         for (int i = 0; i < cs.Length; i++)

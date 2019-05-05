@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 3f3cb857e615b4148a52eeb2105badc8, type: 3}
   m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FlipX: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
     Gravity: 0.1
     Blast: 0.5
     Damage: 5
+    DamageAll: 0
   Projectile: {fileID: 1083188735432687101, guid: fbaeb0759d11c8d40a0b4978a1985bd2,
     type: 3}
 --- !u!61 &8547518652115850133

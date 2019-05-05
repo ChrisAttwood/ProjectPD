@@ -12,21 +12,21 @@ public static class GameFileManager {
 
     public static void Save()
     {
-        Save(GameFile, "CopMan3");
+        Save(GameFile, "CopMan4");
       //  Load();//to create new ScriptableObjects and not alter orignals
     }
 
     public static void Load()
     {
 
-        if (!Exists("CopMan3"))
+        if (!Exists("CopMan4"))
         {
             GameFile = new GameFile();
             GameFile.HighScore = 0;
             Save();
         }
 
-        GameFile = Load<GameFile>("CopMan3");
+        GameFile = Load<GameFile>("CopMan4");
     }
 
 
@@ -53,7 +53,7 @@ public static class GameFileManager {
 
     public static void Delete()
     {
-        Delete("CopMan3");
+        Delete("CopMan4");
     }
 
     public static void Delete(string name)

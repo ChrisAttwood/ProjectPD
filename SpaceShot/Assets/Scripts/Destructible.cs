@@ -59,10 +59,10 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
                     if (Orignal[x, y].a > 0f)
                     {
 
-                        if (Random.Range(0f, 1f) > 0.5f)
+                        if (Random.Range(0f, 1f) > 0.9f)
                         {
                             GameObject pixel = Instantiate(Pixel);
-                            pixel.GetComponent<SpriteRenderer>().color = Orignal[x, y];
+                            pixel.GetComponent<SpriteRenderer>().color = spriteRenderer.color;//Orignal[x, y];
                             pixel.transform.position = new Vector2(X, Y);
                         }
 

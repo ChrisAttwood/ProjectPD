@@ -15,6 +15,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public GameObject SoulFootLeft;
     public GameObject SoulFootRight;
 
+    public GameObject BodyArmor;
+
     public SpriteRenderer BodySprite;
     public SpriteRenderer LegSprite;
 
@@ -35,16 +37,18 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     public float Speed { get; set; }
     public int Health { get; set; }
-
+    public int Armour { get; set; }
 
     public List<Collider2D> Grounds;
 
     public Throwable throwableEquipped;
 
-
+    public bool scoreLogged = false;
 
     public void Create(Gang sd)
     {
+      
+
 
         Speed = sd.Speed;
         Health = sd.Health;
@@ -101,6 +105,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     private void Start()
     {
+        BodyArmor.SetActive(false);
         if (Equipment != null)
         {
             Equip(Equipment);
@@ -217,6 +222,14 @@ public class Sentity : MonoBehaviour, ITakeDamage
         {
             Step();
         }
+
+        if (Armour > 0)
+        {
+            BodyArmor.SetActive(true);
+        } else
+        {
+            BodyArmor.SetActive(false);
+        }
     }
 
     void LandPunch(GameObject hand)
@@ -246,8 +259,11 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     void CheckWin()
     {
-        if (transform.position.x > 260f)
+        if (transform.position.x > 260f && !scoreLogged)
         {
+            Scoreboard.scoreboard.IncreaseScore(100);
+            RunScore.instance.Display();
+            Scoreboard.scoreboard.LogScore();
             Disarm();
             UIManager.instance.Victory();
         }
@@ -305,16 +321,31 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(Vector2 source, float radius, int amount)
     {
-        var bloodPos = (source + (Vector2)transform.position * 3) / 4f;
-
         var direction = (Vector2)transform.position - source;
-        GameObject.Instantiate (Resources.Load("Effects/BloodEffect"), bloodPos, transform.rotation);
-        Health -= amount;
-        if (Health <= 0)
+        if (Armour < 1)
         {
-            Kill();
+            var bloodPos = (source + (Vector2)transform.position * 3) / 4f;
+            //GameObject.Instantiate(Resources.Load("Effects/BloodEffect"), bloodPos, transform.rotation);
+            Health -= amount;
+            if (Health <= 0)
+            {
+                Kill();
+                GameObject.Instantiate(Resources.Load("Effects/KillBloodEffect"), bloodPos, transform.rotation);
+            } else
+            {
+                GameObject.Instantiate(Resources.Load("Effects/BloodEffect"), bloodPos, transform.rotation);
+            }
+        }
+        else
+        {
+            Armour -= amount;
+            if (Armour < 0)
+            {
+                Armour = 0;
+            }
         }
         Knock(source, direction * radius * 100f);
+
     }
 
 
@@ -326,6 +357,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             UIManager.instance.GameOver();
             RunScore.instance.Display();
             Scoreboard.scoreboard.LogScore();
+            scoreLogged = true;
         } else if (!IsDead)
         {
             Scoreboard.scoreboard.IncreaseScore(10);

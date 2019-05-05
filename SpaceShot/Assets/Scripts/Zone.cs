@@ -20,7 +20,9 @@ public class Zone : MonoBehaviour
 
     //public SentityData[] Badies;
 
-    Building[] Buildings; 
+    Building[] Buildings;
+
+    public GameObject bodyArmourPickup;
 
 
     public Chunk[] Chunks;
@@ -94,7 +96,9 @@ public class Zone : MonoBehaviour
                 var mob = Instantiate(SentityPrefab);
                 mob.Create(building.Gang);
                 return mob.gameObject;
-          
+            case 5:
+                var pickup = Instantiate(bodyArmourPickup);
+                return pickup;
 
 
 
