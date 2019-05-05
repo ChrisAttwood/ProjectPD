@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7606893342132138094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7606893342132138092}
+  - component: {fileID: 7606893342132138095}
+  m_Layer: 0
+  m_Name: Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7606893342132138092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606893342132138094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7606893342132138095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606893342132138094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce8e64ec83d64d4b933506be6be43b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SentityPrefab: {fileID: 5186770528797671781, guid: c5468c7a88db77247a762a33162a006c,
+    type: 3}
+  HardBlocks:
+  - {fileID: 3686367297490483478, guid: cb9c96be09782c64385acdbaf3129aec, type: 3}
+  - {fileID: 5515432535331499030, guid: 140156125c3495d46a4c9e390e73c1b2, type: 3}
+  SoftBlocks:
+  - {fileID: 3467089644877447359, guid: 4e7dc99807b73ac4289d5d1a8e2b58ef, type: 3}
+  - {fileID: 9190422365140179992, guid: 0f9d80fc645ea014faa102e829d0a716, type: 3}
+  Clutter:
+  - {fileID: 5930777980026158681, guid: d28ea17155f263c40adf2671c81adcd3, type: 3}
+  - {fileID: 123137748704315073, guid: ea9a887fe56d49f4680c64c054e0fe90, type: 3}
+  CommonWeapons:
+  - {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b, type: 3}
+  RareWeapons:
+  - {fileID: 8307035132381334855, guid: 62e53e5bbcf0eea408d3236e3bd5fed8, type: 3}
+  - {fileID: 4479332627625166441, guid: 57cf15cb78a064949b5dede14a92bfd6, type: 3}
+  Chunks:
+  - {fileID: 11400000, guid: 45d26467c6e630544b25d7b868e95b51, type: 2}
+  - {fileID: 11400000, guid: 980006f7bcb0b1f4b90b613158f33b0c, type: 2}
+  - {fileID: 11400000, guid: 17bde0eebeabafc45a8b624df5c94afa, type: 2}
+  - {fileID: 11400000, guid: be0efbcb74271da42aae981caae8033d, type: 2}
+  - {fileID: 11400000, guid: 33d924cc7d11deb4e9c5c028a0742213, type: 2}
+  - {fileID: 11400000, guid: 429f378fd6dc29148829fcb3edaf86d7, type: 2}
+  - {fileID: 11400000, guid: b185f6859dfbffa4e83ab89fa1b22be2, type: 2}
+  - {fileID: 11400000, guid: 1e25bf9fcc48bf1449158d270271da74, type: 2}
+  - {fileID: 11400000, guid: c3477851dc31fe74d8f5a8420c7147c6, type: 2}
+  - {fileID: 11400000, guid: e5cdfdd8d105e084eb727d9f6f63cf46, type: 2}
+  - {fileID: 11400000, guid: f4fabdb0ab07271419dbbd24b2ae10c7, type: 2}
+  - {fileID: 11400000, guid: 823e3cf857b990d459236f64937e57e9, type: 2}
+  - {fileID: 11400000, guid: ef4594d5d14fcc647a159f15e7ddb2ba, type: 2}
