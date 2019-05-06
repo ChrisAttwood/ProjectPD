@@ -266,6 +266,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             Scoreboard.scoreboard.LogScore();
             Disarm();
             UIManager.instance.Victory();
+            scoreLogged = true;
         }
         if (transform.position.x < -20f)
         {
@@ -327,7 +328,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             var bloodPos = (source + (Vector2)transform.position * 3) / 4f;
             //GameObject.Instantiate(Resources.Load("Effects/BloodEffect"), bloodPos, transform.rotation);
             Health -= amount;
-            if (Health <= 0)
+            if (Health <= 0 && !IsDead)
             {
                 Kill();
                 GameObject.Instantiate(Resources.Load("Effects/KillBloodEffect"), bloodPos, transform.rotation);
