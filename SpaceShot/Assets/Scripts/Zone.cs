@@ -15,7 +15,6 @@ public class Zone : MonoBehaviour
     public GameObject[] Clutter;
     public Equipment[] CommonWeapons;
     public Equipment[] RareWeapons;
-    public GameObject[] hazardBlocks;
 
     //public GameObject[] Blocks;
 
@@ -100,10 +99,8 @@ public class Zone : MonoBehaviour
             case 5:
                 var pickup = Instantiate(bodyArmourPickup);
                 return pickup;
-            case 6:
-                var hazb = Instantiate(building.HazardBlock);
-                hazb.GetComponent<SpriteRenderer>().color = building.HazardColour;
-                return hazb;
+
+
 
         }
 
@@ -129,13 +126,8 @@ public class Zone : MonoBehaviour
             buildings[i] = new Building();
             buildings[i].SoftBlock = SoftBlocks[Random.Range(0, SoftBlocks.Length)];
             buildings[i].HardBlock = HardBlocks[Random.Range(0, HardBlocks.Length)];
-            // Seb's new code
-            buildings[i].HazardBlock = hazardBlocks[Random.Range(0, hazardBlocks.Length)];
             buildings[i].SoftColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
             buildings[i].HardColour = new Color(Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f);
-            // Seb's new code
-            buildings[i].HazardColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
-
             buildings[i].Clutter = Clutter[Random.Range(0, Clutter.Length)];
 
             buildings[i].Gang = new Gang();
@@ -161,10 +153,8 @@ public class Building
 {
     public GameObject SoftBlock;
     public GameObject HardBlock;
-    public GameObject HazardBlock;
     public Color SoftColour;
     public Color HardColour;
-    public Color HazardColour;
 
     public GameObject Clutter;
 
