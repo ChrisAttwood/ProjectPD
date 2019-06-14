@@ -10,6 +10,10 @@ public class AISentity : MonoBehaviour
     public float Engage = 5f;
     public float TriggerRate = 1f;
     bool Engaged = false;
+    public bool Runner;
+    public bool Chase;
+    public float jumpTimer;
+    public float runnerChance = 0.1f;
 
     Sentity Sentity;
 
@@ -22,6 +26,16 @@ public class AISentity : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        RunnerCheck();
+    }
+
+    void RunnerCheck()
+    {
+        float randomRoll = Random.Range(0f, 1f);
+        if (randomRoll < runnerChance)
+        {
+            Runner = true;
+        }
     }
 
     // Update is called once per frame
@@ -32,6 +46,10 @@ public class AISentity : MonoBehaviour
         if (distance < Awareness)
         {
             Sentity.Target = Player.transform.position;
+            if (Runner)
+            {
+                Chase = true;
+            }
         }
 
         if (!Engaged)
@@ -42,7 +60,11 @@ public class AISentity : MonoBehaviour
                 Engaged = true;
             }
         }
-       
+        
+        if (Chase)
+        {
+            MoveItMoveIt();
+        }
     }
 
     void Fire()
@@ -69,5 +91,26 @@ public class AISentity : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void MoveItMoveIt()
+    {
+        Vector2 playerPos = Player.transform.position;
+        Vector2 entityPosition = this.transform.position;
+        int dir = 0;
+        if (playerPos.x > entityPosition.x)
+        {
+            dir = 1;
+        } else
+        {
+            dir = -1;
+        }
+        bool jump = false;
+        if (jumpTimer < 0)
+        {
+            jump = true;
+            jumpTimer = Random.Range(3f, 20f);
+        }
+        Sentity.Move(new Vector2(dir, 0f), jump);
     }
 }

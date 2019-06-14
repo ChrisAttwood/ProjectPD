@@ -35,7 +35,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     public bool IsDead;
 
-    public float Speed { get; set; }
+    //public float Speed { get; set; }
+    public float Speed;
     public int Health { get; set; }
     public int Armour { get; set; }
 
@@ -50,7 +51,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
       
 
 
-        Speed = sd.Speed;
+        Speed = 1f + (sd.Speed * 0.1f);
         Health = sd.Health;
         IsPlayer = false;
         BodySprite.color = sd.BodyColour;
@@ -261,12 +262,14 @@ public class Sentity : MonoBehaviour, ITakeDamage
     {
         if (transform.position.x > 260f && !scoreLogged)
         {
+            LevelTimer.instance.win = true;
             Scoreboard.scoreboard.IncreaseScore(100);
-            RunScore.instance.Display();
+            //RunScore.instance.Display();
             Scoreboard.scoreboard.LogScore();
             Disarm();
             UIManager.instance.Victory();
             scoreLogged = true;
+            RunScore.instance.Display();
         }
         if (transform.position.x < -20f)
         {

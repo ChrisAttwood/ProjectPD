@@ -8,6 +8,8 @@ public class RunScore : MonoBehaviour
     public static RunScore instance; 
     public Text CurrentBestText;
     public Text RunScoreText;
+    public Text TimeMultiplierText;
+    public Text FinalScoreText;
 
     private void Awake()
     {
@@ -19,7 +21,8 @@ public class RunScore : MonoBehaviour
     public void Display()
     {
         CurrentBestText.text = "Best : " + GameFileManager.GameFile.HighScore;
-        RunScoreText.text = "This Run : " + Scoreboard.scoreboard.score;
-
+        RunScoreText.text = "This Run : " + Scoreboard.scoreboard.unmodifiedScore;
+        TimeMultiplierText.text = "Time Bonus x " +LevelTimer.instance.ReturnTimeBonus();
+        FinalScoreText.text = "Final Score : " + Scoreboard.scoreboard.score;
     }
 }
