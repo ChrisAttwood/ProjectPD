@@ -13,7 +13,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     SpriteRenderer spriteRenderer;
     PolygonCollider2D polygonCollider2D;
-
+   
     
 
     void Awake()
@@ -50,8 +50,6 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
             {
                 float X = transform.position.x + ((x - 16) / 32f);
                 float Y = transform.position.y + ((y - 16) / 32f);
-                //float X = transform.position.x + ((x - 8) / 16f);
-                //float Y = transform.position.y + ((y - 8) / 16f);
 
 
                 if (Vector2.Distance(source, new Vector2(X, Y)) < radius)
@@ -73,6 +71,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
             }
         }
         Paint(Orignal);
+       
     }
 
 
@@ -103,18 +102,159 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
         texture.Apply();
         spriteRenderer.sprite = Sprite.Create(texture, new Rect(0, 0, scale, scale), new Vector2(0.5f, 0.5f),32);
 
-        if (polygonCollider2D != null)
-        {
-            Destroy(polygonCollider2D);
-        }
+     
 
         if (HasMat)
         {
-            polygonCollider2D = gameObject.AddComponent<PolygonCollider2D>();
+           
+            ReCalculateCollider();
+        }
+        else
+        {
+            Destroy(gameObject);
         }
 
 
     }
 
-   
+    private struct ColliderSegment
+    {
+        public Vector2 Point1;
+        public Vector2 Point2;
+        public ColliderSegment(Vector2 Point1, Vector2 Point2)
+        {
+            this.Point1 = Point1;
+            this.Point2 = Point2;
+        }
+    }
+
+    void ReCalculateCollider()
+    {
+
+        polygonCollider2D.pathCount = 0;
+
+
+        List<ColliderSegment> segments;
+
+        segments = GetSegments(spriteRenderer.sprite.texture);
+        List<List<Vector2>> paths;
+
+        paths = FindPaths(segments);
+        paths = ConvertToLocal(paths, spriteRenderer.sprite);
+        paths = CalculatePivot(paths, spriteRenderer.sprite);
+        polygonCollider2D.pathCount = paths.Count;
+
+    
+        for (int p = 0; p < paths.Count; p++)
+        {
+            polygonCollider2D.SetPath(p, paths[p].ToArray());
+        }
+
+    
+    }
+
+    List<List<Vector2>> FindPaths(List<ColliderSegment> segments)
+    {
+        List<List<Vector2>> output = new List<List<Vector2>>();
+        List<Vector2> currentpath;
+        while (segments.Count > 0)
+        {
+            Vector2 currentpoint = segments[0].Point2;
+            currentpath = new List<Vector2>();
+            currentpath.Add(segments[0].Point1);
+            currentpath.Add(segments[0].Point2);
+            segments.Remove(segments[0]);
+            bool currentpathcomplete = false;
+            while (currentpathcomplete == false)
+            {
+
+                currentpathcomplete = true;
+                for (int s = 0; s < segments.Count; s++)
+                {
+                    if (segments[s].Point1 == currentpoint)
+                    {
+                        currentpathcomplete = false;
+                        currentpath.Add(segments[s].Point2);
+                        currentpoint = segments[s].Point2;
+                        segments.Remove(segments[s]);
+                    }
+                    else if (segments[s].Point2 == currentpoint)
+                    {
+                        currentpathcomplete = false;
+                        currentpath.Add(segments[s].Point1);
+                        currentpoint = segments[s].Point1;
+                        segments.Remove(segments[s]);
+                    }
+                }
+            }
+            output.Add(currentpath);
+        }
+        return output;
+    }
+
+    List<ColliderSegment> GetSegments(Texture2D texture)
+    {
+        List<ColliderSegment> output = new List<ColliderSegment>();
+
+        for (int height = 0; height < texture.height; height++)
+        {
+            for (int width = 0; width < texture.width; width++)
+            {
+                
+                if (texture.GetPixel(width, height).a != 0)
+                {
+                  
+                    if (height + 1 >= texture.height || texture.GetPixel(width, height + 1).a == 0)
+                    {
+                        output.Add(new ColliderSegment(new Vector2(width, height + 1), new Vector2(width + 1, height + 1)));
+                    }
+                    if (height - 1 < 0 || texture.GetPixel(width, height - 1).a == 0)
+                    {
+                        output.Add(new ColliderSegment(new Vector2(width, height), new Vector2(width + 1, height)));
+                    }
+                    if (width + 1 >= texture.width || texture.GetPixel(width + 1, height).a == 0)
+                    {
+                        output.Add(new ColliderSegment(new Vector2(width + 1, height), new Vector2(width + 1, height + 1)));
+                    }
+                    if (width - 1 < 0 || texture.GetPixel(width - 1, height).a == 0)
+                    {
+                        output.Add(new ColliderSegment(new Vector2(width, height), new Vector2(width, height + 1)));
+                    }
+                }
+            }
+        }
+        return output;
+    }
+
+    private List<List<Vector2>> ConvertToLocal(List<List<Vector2>> original, Sprite sprite)
+    {
+
+        for (int p = 0; p < original.Count; p++)
+        {
+            for (int o = 0; o < original[p].Count; o++)
+            {
+                Vector2 currentpoint = original[p][o];
+                currentpoint.x /= 32f;
+                currentpoint.y /= 32f;
+                original[p][o] = currentpoint;
+            }
+        }
+        return original;
+    }
+
+    private List<List<Vector2>> CalculatePivot(List<List<Vector2>> original, Sprite sprite)
+    {
+        Vector2 pivot = sprite.pivot;
+        pivot.x /= 32f;
+        pivot.y /= 32f;
+        for (int p = 0; p < original.Count; p++)
+        {
+            for (int o = 0; o < original[p].Count; o++)
+            {
+                original[p][o] -= pivot;
+            }
+        }
+        return original;
+    }
+
 }
