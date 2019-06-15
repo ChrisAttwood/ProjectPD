@@ -11,5 +11,5 @@ public class ChunkData
         public int[] row;
     }
 
-    public Row[] rows = new Row[4];
+    public Row[] rows = new Row[8];
 }

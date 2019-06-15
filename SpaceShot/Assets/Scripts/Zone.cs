@@ -28,6 +28,8 @@ public class Zone : MonoBehaviour
 
     public Chunk[] Chunks;
 
+    public int ChunkScale = 8;
+
 
     private void Awake()
     {
@@ -35,21 +37,21 @@ public class Zone : MonoBehaviour
         Buildings = CreateBuildings();
 
 
-        data = new int[256, 8];
+        data = new int[256,16];
 
       
 
-        for (int x = 0; x < 256; x+= 4)
+        for (int x = 0; x < 256; x+=8)
         {
 
-            for (int y = 0; y < 8; y+=4)
+            for (int y = 0; y < 16; y+=8)
             {
 
                 var chunk = Chunks[Random.Range(0, Chunks.Length)];
 
-                for (int cX = 0; cX < 4; cX++)
+                for (int cX = 0; cX < 8; cX++)
                 {
-                    for (int cY = 0; cY < 4; cY++)
+                    for (int cY = 0; cY < 8; cY++)
                     {
 
                         data[x + cX, y + cY] = chunk.ChunkData.rows[cY].row[cX];
@@ -63,12 +65,12 @@ public class Zone : MonoBehaviour
 
         for (int x = 0; x < 256; x++)
         {
-            for (int y = 0; y < 8; y++)
+            for (int y = 0; y < 16; y++)
             {
 
                 if (data[x, y] > 0)
                 {
-                    var item = Get(data[x, y], Buildings[x/16]);
+                    var item = Get(data[x, y], Buildings[x / 16]);
                     item.transform.position = new Vector2(x, y + 1);
 
                 }
@@ -77,7 +79,7 @@ public class Zone : MonoBehaviour
 
         }
 
-     }
+    }
 
     GameObject Get(int data,Building building)
     {
