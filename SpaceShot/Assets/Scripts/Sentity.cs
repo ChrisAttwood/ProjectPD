@@ -231,6 +231,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
         {
             BodyArmor.SetActive(false);
         }
+
+        Spin();
     }
 
     void LandPunch(GameObject hand)
@@ -251,7 +253,24 @@ public class Sentity : MonoBehaviour, ITakeDamage
             }
 
         }
+
+        
     }
+
+
+    void Spin()
+    {
+        if (LeapTriggered)
+        {
+            transform.Rotate(new Vector3(0f, 0f, transform.localScale.x * -10f));
+            if ((int)(transform.eulerAngles.z) == 0)
+            {
+                LeapTriggered = false;
+            }
+        }
+    }
+
+
 
     void Punch(GameObject hand,Vector2? Target)
     {
@@ -394,6 +413,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
 
 
+    bool LeapTriggered = false;
+
     public void Move(Vector2 vector2,bool Jumping)
     {
         if (IsDead) return;
@@ -425,6 +446,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
         }
         else
         {
+
             if (Rigidbody2D.velocity.y < 0)
             {
                 v2.y = -0.5f;
@@ -432,6 +454,14 @@ public class Sentity : MonoBehaviour, ITakeDamage
             else if (!Jumping)
             {
                 v2.y = -0.5f;
+            }
+            else
+            {
+                if (vector2.y > 0f && Jumping && !LeapTriggered)
+                {
+                    LeapTriggered = true;
+                    v2.y = 3f;
+                }
             }
             Rigidbody2D.AddForce(v2 * 50f);
         }
@@ -444,6 +474,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
       
 
     }
+
+    
 
     void LateUpdate()
     {
