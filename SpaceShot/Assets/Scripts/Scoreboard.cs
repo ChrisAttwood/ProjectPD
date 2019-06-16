@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Scoreboard : MonoBehaviour
 {
     public int unmodifiedScore = 0;
     public float timeBonus = 0f;
     public int score = 0;
-    public Text scoreText;
-    //public Text timeBonusText;
-    //public Text finalScoreText;
+    public TMP_Text scoreText;
+
     public static Scoreboard scoreboard;
 
     public HudText CashPrefab;

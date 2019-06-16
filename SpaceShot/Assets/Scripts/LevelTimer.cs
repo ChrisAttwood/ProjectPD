@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelTimer : MonoBehaviour
 {
     public static LevelTimer instance;
     public float timeInLevel;
-    public Text timeText;
+    public TMP_Text timeText;
     public List<TimeBonus> timeBonuses;
     public bool recording;
     public bool win = false;
 
     private void Awake()
     {
-        timeText = GetComponent<Text>();
+        timeText = GetComponent<TMP_Text>();
         instance = this;
         StartTimer();
     }
