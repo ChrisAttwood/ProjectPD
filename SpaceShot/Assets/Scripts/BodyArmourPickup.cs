@@ -15,7 +15,7 @@ public class BodyArmourPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered");
+
         Sentity sentity = (other.GetComponent<Sentity>());
         if (sentity!= null){
             if (sentity.IsPlayer)
