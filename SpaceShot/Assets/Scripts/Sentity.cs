@@ -236,21 +236,10 @@ public class Sentity : MonoBehaviour, ITakeDamage
         }
 
         Spin();
-      //  EyeUpdate();
+     
     }
 
-    //void EyeUpdate()
-    //{
-    //    if (!IsDead)
-    //    {
-    //        if (Random.Range(0f, 1f) > 0.99f)
-    //        {
-    //            int x = Random.Range(-1, 2);
-    //            int y = Random.Range(-1, 2);
-    //            Eyes.transform.localPosition = new Vector2(x * 0.032f, y * 0.032f);
-    //        }
-    //    }
-    //}
+  
 
     void LandPunch(GameObject hand)
     {
@@ -476,7 +465,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             }
             else
             {
-                if (vector2.y > 0f && Jumping && !LeapTriggered)
+                if (vector2.y > 0f && Jumping && !LeapTriggered && Grounds.Count ==0)
                 {
                     LeapTriggered = true;
                     v2.y = 3f;
