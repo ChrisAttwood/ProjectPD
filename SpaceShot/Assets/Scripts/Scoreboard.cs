@@ -36,11 +36,14 @@ public class Scoreboard : MonoBehaviour
     {
         timeBonus = LevelTimer.instance.ReturnTimeBonus();
         score = Mathf.RoundToInt(unmodifiedScore * timeBonus);
-
-        if (GameFileManager.GameFile.HighScore < score)
+        if(GameFileManager.GameFile!=null)
         {
-            GameFileManager.GameFile.HighScore = score;
-            GameFileManager.Save();
+            if (GameFileManager.GameFile.HighScore < score)
+            {
+                GameFileManager.GameFile.HighScore = score;
+                GameFileManager.Save();
+            }
+
         }
 
     }

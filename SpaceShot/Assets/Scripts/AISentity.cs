@@ -13,7 +13,7 @@ public class AISentity : MonoBehaviour
     public bool Runner;
     public bool Chase;
     public float jumpTimer = 1f;
-    public float runnerChance = 1f;
+    public float runnerChance = 0.5f;
 
     Sentity Sentity;
 
