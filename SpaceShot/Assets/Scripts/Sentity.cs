@@ -35,7 +35,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     public bool IsDead;
 
-    //public float Speed { get; set; }
+
     public float Speed;
     public int Health { get; set; }
     public int Armour { get; set; }
