@@ -439,6 +439,22 @@ public class Sentity : MonoBehaviour, ITakeDamage
         {
             Grounds = new List<Collider2D>();
         }
+
+        
+      
+
+    }
+
+    void LateUpdate()
+    {
+        //Limit velocity to avoid moving thought colliders
+        //Also helps handling
+        if (Rigidbody2D.velocity.magnitude > 10f)
+        {
+            Vector2 v = Rigidbody2D.velocity;
+            v.Normalize();
+            Rigidbody2D.velocity = v * 10f;
+        }
     }
 
 
