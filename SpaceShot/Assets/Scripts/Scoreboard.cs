@@ -9,20 +9,24 @@ public class Scoreboard : MonoBehaviour
     public float timeBonus = 0f;
     public int score = 0;
     public Text scoreText;
-    public Text timeBonusText;
-    public Text finalScoreText;
+    //public Text timeBonusText;
+    //public Text finalScoreText;
     public static Scoreboard scoreboard;
+
+    public HudText CashPrefab;
+    
 
     public void Awake()
     {
-        //GameFileManager.GameFile.HighScore = 0;
-        //GameFileManager.Save();
         scoreboard = this;
         UpdateScore();
     }
 
-    public void IncreaseScore(int amount)
+    public void IncreaseScore(int amount,Vector2 pos)
     {
+        var cash = Instantiate(CashPrefab);
+        cash.Set(pos, amount.ToString());
+
         unmodifiedScore += amount;
         UpdateScore();
     }

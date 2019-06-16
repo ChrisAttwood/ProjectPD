@@ -2263,6 +2263,7 @@ GameObject:
   - component: {fileID: 1314550940}
   - component: {fileID: 1314550939}
   - component: {fileID: 1314550938}
+  - component: {fileID: 1314550942}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2326,7 +2327,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2352,6 +2353,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1314550942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314550937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1680ece139f1f4caa9943be940f4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1332135756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,8 +2682,8 @@ MonoBehaviour:
   timeBonus: 0
   score: 0
   scoreText: {fileID: 1622871707}
-  timeBonusText: {fileID: 0}
-  finalScoreText: {fileID: 0}
+  CashPrefab: {fileID: -2054347472813438589, guid: 0d935835f2bdf5d498fcf7c99618b23f,
+    type: 3}
 --- !u!114 &1622871707
 MonoBehaviour:
   m_ObjectHideFlags: 0

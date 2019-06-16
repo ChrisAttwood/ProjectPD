@@ -288,7 +288,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
         if (transform.position.x > 260f && !scoreLogged)
         {
             LevelTimer.instance.win = true;
-            Scoreboard.scoreboard.IncreaseScore(100);
+            Scoreboard.scoreboard.IncreaseScore(100,transform.position);
             //RunScore.instance.Display();
             Scoreboard.scoreboard.LogScore();
             Disarm();
@@ -389,7 +389,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             scoreLogged = true;
         } else if (!IsDead)
         {
-            Scoreboard.scoreboard.IncreaseScore(10);
+            Scoreboard.scoreboard.IncreaseScore(10,transform.position);
         }
         IsDead = true;
         Eyes.SetActive(false);
