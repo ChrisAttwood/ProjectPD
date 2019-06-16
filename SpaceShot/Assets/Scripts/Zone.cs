@@ -7,8 +7,6 @@ public class Zone : MonoBehaviour
     int[,] data;
 
     public Sentity SentityPrefab;
-   // public SentityData PlayerData;
-
 
     public GameObject[] HardBlocks;
     public GameObject[] SoftBlocks;
@@ -17,9 +15,7 @@ public class Zone : MonoBehaviour
     public Equipment[] RareWeapons;
     public GameObject[] hazardBlocks;
 
-    //public GameObject[] Blocks;
 
-    //public SentityData[] Badies;
 
     Building[] Buildings;
 
@@ -104,7 +100,7 @@ public class Zone : MonoBehaviour
                 return pickup;
             case 6:
                 var hazb = Instantiate(building.HazardBlock);
-                //hazb.GetComponent<SpriteRenderer>().color = building.HazardColour;
+
                 return hazb;
 
         }
@@ -133,8 +129,12 @@ public class Zone : MonoBehaviour
             buildings[i].HardBlock = HardBlocks[Random.Range(0, HardBlocks.Length)];
             // Seb's new code
             buildings[i].HazardBlock = hazardBlocks[Random.Range(0, hazardBlocks.Length)];
+            //buildings[i].SoftColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
+            //buildings[i].HardColour = new Color(Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f);
+
             buildings[i].SoftColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
-            buildings[i].HardColour = new Color(Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f);
+            buildings[i].HardColour = new Color(Random.Range(4, 5) * 0.1f, Random.Range(4, 5) * 0.1f, Random.Range(4, 5) * 0.1f);
+
             // Seb's new code
             buildings[i].HazardColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
 
