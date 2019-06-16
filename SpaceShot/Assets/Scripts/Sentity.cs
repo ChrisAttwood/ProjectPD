@@ -15,6 +15,9 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public GameObject SoulFootLeft;
     public GameObject SoulFootRight;
 
+    public GameObject Eyes;
+    public GameObject DeadEyes;
+
     public GameObject BodyArmor;
 
     public SpriteRenderer BodySprite;
@@ -233,7 +236,21 @@ public class Sentity : MonoBehaviour, ITakeDamage
         }
 
         Spin();
+      //  EyeUpdate();
     }
+
+    //void EyeUpdate()
+    //{
+    //    if (!IsDead)
+    //    {
+    //        if (Random.Range(0f, 1f) > 0.99f)
+    //        {
+    //            int x = Random.Range(-1, 2);
+    //            int y = Random.Range(-1, 2);
+    //            Eyes.transform.localPosition = new Vector2(x * 0.032f, y * 0.032f);
+    //        }
+    //    }
+    //}
 
     void LandPunch(GameObject hand)
     {
@@ -386,6 +403,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
             Scoreboard.scoreboard.IncreaseScore(10);
         }
         IsDead = true;
+        Eyes.SetActive(false);
+        DeadEyes.SetActive(true);
     }
 
     void Knock(Vector2 Source, Vector2 force)
