@@ -104,7 +104,7 @@ public class Zone : MonoBehaviour
                 return pickup;
             case 6:
                 var hazb = Instantiate(building.HazardBlock);
-                hazb.GetComponent<SpriteRenderer>().color = building.HazardColour;
+                //hazb.GetComponent<SpriteRenderer>().color = building.HazardColour;
                 return hazb;
 
         }

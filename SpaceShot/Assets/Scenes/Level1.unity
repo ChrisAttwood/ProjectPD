@@ -3301,7 +3301,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hazardBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 3997230629084530101, guid: d822c96693eef6a499774a2e8b544b7c,
+      objectReference: {fileID: 4264662652247296128, guid: b690f02825ec9ad4980bdd935d46fa69,
         type: 3}
     - target: {fileID: 7606893342132138095, guid: f1f3c849e137ff143a1e944dea706336,
         type: 3}
