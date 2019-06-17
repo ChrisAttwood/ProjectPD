@@ -31,6 +31,7 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = new Vector2(xLocation + cam.transform.position.x * (100- Depth) * 0.01f, height);
+        //transform.localPosition = new Vector2(xLocation + cam.transform.position.x * (100- Depth) * 0.01f, height);
+        transform.localPosition = new Vector2(xLocation + cam.transform.position.x * (Depth) * 0.01f, height);
     }
 }
