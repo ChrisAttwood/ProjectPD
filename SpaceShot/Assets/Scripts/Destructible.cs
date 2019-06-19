@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer), typeof(PolygonCollider2D))]
 public class Destructible : MonoBehaviour ,ITakeDamage {
 
     Color[,] Orignal;
@@ -126,6 +126,13 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
             this.Point1 = Point1;
             this.Point2 = Point2;
         }
+    }
+
+    public void ReBuildCollider()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        polygonCollider2D = GetComponent<PolygonCollider2D>();
+        ReCalculateCollider();
     }
 
     void ReCalculateCollider()
