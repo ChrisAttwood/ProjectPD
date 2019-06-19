@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Target : MonoBehaviour
 {
     private Camera cam;
@@ -16,6 +17,7 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Sentity != null)
         {
             Vector3 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);

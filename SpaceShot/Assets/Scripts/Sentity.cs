@@ -15,6 +15,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public GameObject SoulFootLeft;
     public GameObject SoulFootRight;
 
+  
+
     public GameObject Eyes;
     public GameObject DeadEyes;
 
@@ -24,6 +26,9 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public SpriteRenderer LegSprite;
 
     public SpriteRenderer[] Skins;
+    public Sprite[] ThrowCharge;
+    public SpriteRenderer ThrowEffect;
+   
 
     public Color[] SkinTones;
 
@@ -38,6 +43,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     public bool IsDead;
 
+
+    public int Grenades = 5;
 
     public float Speed;
     public int Health { get; set; }
@@ -336,7 +343,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
         if (transform.localScale.x < 0)
         {
             mod = -0.3f;
-        } else
+        }
+        else
         {
             mod = 0.3f;
         }

@@ -15,11 +15,11 @@ public class Zone : MonoBehaviour
     public Equipment[] RareWeapons;
     public GameObject[] hazardBlocks;
 
-
+    public GameObject[] PickUps;
 
     Building[] Buildings;
 
-    public GameObject bodyArmourPickup;
+   // public GameObject bodyArmourPickup;
 
 
     public Chunk[] Chunks;
@@ -96,7 +96,7 @@ public class Zone : MonoBehaviour
                 mob.Create(building.Gang);
                 return mob.gameObject;
             case 5:
-                var pickup = Instantiate(bodyArmourPickup);
+                var pickup = Instantiate(PickUps[Random.Range(0, PickUps.Length)]);
                 return pickup;
             case 6:
                 var hazb = Instantiate(building.HazardBlock);

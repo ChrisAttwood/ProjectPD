@@ -2,32 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BodyArmourPickup : MonoBehaviour
+public class GrenadePickUp : MonoBehaviour
 {
-
-    public int armourAmount = 20;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
 
         Sentity sentity = (other.GetComponent<Sentity>());
-        if (sentity!= null){
+        if (sentity != null)
+        {
             if (sentity.IsPlayer)
             {
-                PickupBodyArmour(sentity);
+                PickupBodyGrenades(sentity);
             }
         }
     }
 
-    private void PickupBodyArmour(Sentity sentity)
+    private void PickupBodyGrenades(Sentity sentity)
     {
-        sentity.Armour = armourAmount;
+        sentity.Grenades = 5;
+        GrenadeCounter.instance.UpdateCounter(sentity.Grenades);
         HidePickup();
     }
 
