@@ -4632,6 +4632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606893342132138095, guid: f1f3c849e137ff143a1e944dea706336,
         type: 3}
+      propertyPath: Chunks.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606893342132138095, guid: f1f3c849e137ff143a1e944dea706336,
+        type: 3}
       propertyPath: PickUps.Array.data[0]
       value: 
       objectReference: {fileID: 1953470136834101501, guid: 2c551e23b22ce3c438da9c07606fef3b,
@@ -4642,5 +4647,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 570299033237635612, guid: e3d85a48e70a25843ad1be7b0a801922,
         type: 3}
+    - target: {fileID: 7606893342132138095, guid: f1f3c849e137ff143a1e944dea706336,
+        type: 3}
+      propertyPath: Chunks.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: 824a9e1f9311f3b4c8796ea48af55bdd,
+        type: 2}
+    - target: {fileID: 7606893342132138095, guid: f1f3c849e137ff143a1e944dea706336,
+        type: 3}
+      propertyPath: Chunks.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1694bfc09578631439e5bf1d527a9b84,
+        type: 2}
+    - target: {fileID: 7606893342132138095, guid: f1f3c849e137ff143a1e944dea706336,
+        type: 3}
+      propertyPath: Chunks.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a7e5e7c02b477448861d047f62fb975,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1f3c849e137ff143a1e944dea706336, type: 3}
