@@ -11,10 +11,10 @@ public class Zone : MonoBehaviour
     public GameObject[] HardBlocks;
     public GameObject[] SoftBlocks;
     public GameObject[] Clutter;
+    public GameObject[] Platforms;
     public Equipment[] CommonWeapons;
     public Equipment[] RareWeapons;
     public GameObject[] hazardBlocks;
-
 
 
     Building[] Buildings;
@@ -29,13 +29,10 @@ public class Zone : MonoBehaviour
 
     private void Awake()
     {
-
+     
         Buildings = CreateBuildings();
-
-
+        
         data = new int[256,16];
-
-      
 
         for (int x = 0; x < 256; x+=8)
         {
@@ -68,7 +65,6 @@ public class Zone : MonoBehaviour
                 {
                     var item = Get(data[x, y], Buildings[x / 16]);
                     item.transform.position = new Vector2(x, y + 1);
-
                 }
 
             }
@@ -102,7 +98,11 @@ public class Zone : MonoBehaviour
                 var hazb = Instantiate(building.HazardBlock);
 
                 return hazb;
-
+        }
+        if (data >= 100 && data < 200)
+        {
+            var platform = Instantiate(Platforms[data-100]);
+            return platform;
         }
 
         return null;
@@ -129,6 +129,7 @@ public class Zone : MonoBehaviour
             buildings[i].HardBlock = HardBlocks[Random.Range(0, HardBlocks.Length)];
             // Seb's new code
             buildings[i].HazardBlock = hazardBlocks[Random.Range(0, hazardBlocks.Length)];
+            //buildings[i].Platform = Platforms[Random.Range(0, Platforms.Length)];
             //buildings[i].SoftColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
             //buildings[i].HardColour = new Color(Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f);
 
@@ -164,6 +165,7 @@ public class Building
     public GameObject SoftBlock;
     public GameObject HardBlock;
     public GameObject HazardBlock;
+    public GameObject Platform;
     public Color SoftColour;
     public Color HardColour;
     public Color HazardColour;
