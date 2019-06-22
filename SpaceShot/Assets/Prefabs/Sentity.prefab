@@ -789,7 +789,7 @@ Transform:
   m_GameObject: {fileID: 4796626143920763285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 8081609892145210976}
   m_RootOrder: 11
@@ -1095,7 +1095,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1fd05b743904c0b44966676a48232f52, type: 3}
   - {fileID: 21300000, guid: e4321adfb875c9741b6c5152c457c922, type: 3}
   ThrowEffect: {fileID: 7608634954895682195}
-  SubThrowEffect: {fileID: 0}
   SkinTones:
   - {r: 1, g: 0.8, b: 0.8, a: 1}
   - {r: 0.1, g: 0.1, b: 0, a: 1}
@@ -1117,6 +1116,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e10ac5a1093daf2468cc88fda23ecf59, type: 3}
   - {fileID: 21300000, guid: 305cd6d265f20dd4fbbb3f3b98835ed9, type: 3}
   IsDead: 0
+  Grenades: 5
   Speed: 0
   Grounds: []
   throwableEquipped: {fileID: 7302204260777595199, guid: 4fcc081a524bc0c49b62b2e7c4cf5b05,

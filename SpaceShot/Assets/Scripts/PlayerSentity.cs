@@ -91,7 +91,7 @@ public class PlayerSentity : MonoBehaviour
             }
             Sentity.ThrowEffect.sprite = Sentity.ThrowCharge[index];
 
-            Sentity.ThrowEffect.color = new Color(percent, percent/2f, 0f, (percent/2f) + 0.1f);
+            Sentity.ThrowEffect.color = new Color(percent, percent/2f, 0f, (percent/4f) + 0.3f);
 
           
 
