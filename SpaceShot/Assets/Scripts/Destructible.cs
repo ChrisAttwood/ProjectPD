@@ -6,18 +6,18 @@ using UnityEngine;
 public class Destructible : MonoBehaviour ,ITakeDamage {
 
     Color[,] Orignal;
-    public GameObject Pixel;
 
     int scale = 32;
 
 
     SpriteRenderer spriteRenderer;
     PolygonCollider2D polygonCollider2D;
-   
-    
+
+    System.Diagnostics.Stopwatch sw;
 
     void Awake()
     {
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
     }
@@ -42,10 +42,10 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     public void TakeDamage(Vector2 source, float radius, int amount)
     {
+
         
-
-
         SnapShot();
+
 
         for (int x = 0; x < scale; x++)
         {
@@ -62,8 +62,10 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
                         if (Random.Range(0f, 1f) > 0.9f)
                         {
-                            GameObject pixel = Instantiate(Pixel);
-                            pixel.GetComponent<SpriteRenderer>().color = spriteRenderer.color;//Orignal[x, y];
+                            
+                            var pixel = PixelPool.instance.Get();
+                            pixel.Set();
+                            pixel.SpriteRenderer.color = spriteRenderer.color;
                             pixel.transform.position = new Vector2(X, Y);
                         }
 
@@ -73,8 +75,8 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
                 }
             }
         }
+
         Paint(Orignal);
-       
     }
 
 

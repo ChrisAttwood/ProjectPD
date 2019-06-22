@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1061198900028256223}
   - component: {fileID: 6384231571445961565}
-  - component: {fileID: 6678114712600373103}
-  - component: {fileID: 9157978679608270226}
+  - component: {fileID: -8977663473932547878}
+  - component: {fileID: 4251833943138901078}
   m_Layer: 0
   m_Name: BarsBlock
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6678114712600373103
+--- !u!60 &-8977663473932547878
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
---- !u!114 &9157978679608270226
+--- !u!114 &4251833943138901078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

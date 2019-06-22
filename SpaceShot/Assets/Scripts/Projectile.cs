@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
 
     public void Create(Ammo ammo, bool playerBullet)
     {
+        Rigidbody2D.velocity = Vector2.zero;
         DamageAll = ammo.DamageAll;
         playerProjectile = playerBullet;
         Mass = ammo.Mass;
@@ -40,6 +41,7 @@ public class Projectile : MonoBehaviour
 
         Rigidbody2D.mass = Mass / 100f;
         Rigidbody2D.gravityScale = Gravity;
+       
     }
 
 
@@ -55,17 +57,14 @@ public class Projectile : MonoBehaviour
         Hit();
     }
 
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-
-    //    Hit();
-    //}
+   
 
     private void Hit()
     {
         Explode(transform.position);
 
-        Destroy(gameObject);
+        ProjectilePool.instance.Return(this);
+
     }
 
     private void Explode(Vector2 pos)
