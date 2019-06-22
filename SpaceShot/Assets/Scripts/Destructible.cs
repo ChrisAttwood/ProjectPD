@@ -42,6 +42,9 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     public void TakeDamage(Vector2 source, float radius, int amount)
     {
+        
+
+
         SnapShot();
 
         for (int x = 0; x < scale; x++)
