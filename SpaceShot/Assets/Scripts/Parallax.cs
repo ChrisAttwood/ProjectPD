@@ -35,7 +35,7 @@ public class Parallax : MonoBehaviour
     {
         //transform.localPosition = new Vector2(xLocation + cam.transform.position.x * (100- Depth) * 0.01f, height);
 
-        if(Mathf.Abs(cam.transform.position.x - transform.localPosition.x) < 30)
+        if(Mathf.Abs(cam.transform.position.x - transform.localPosition.x) < 50)
         {
             sr.enabled = true;
             srchild.enabled = true;
