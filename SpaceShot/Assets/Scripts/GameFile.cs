@@ -8,8 +8,9 @@ public class GameFile {
 
 
     public int HighScore;
-    
 
+    public int CurrentLevel;
+    public int CurrentScore;
 
     public GameFile()
     {

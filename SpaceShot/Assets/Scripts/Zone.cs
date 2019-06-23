@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Zone : MonoBehaviour
 {
@@ -29,6 +30,13 @@ public class Zone : MonoBehaviour
 
     private void Awake()
     {
+
+        if (GameFileManager.GameFile == null)
+        {
+            SceneManager.LoadScene("Menu");
+            return;
+        }
+
 
         Buildings = CreateBuildings();
 
@@ -122,6 +130,8 @@ public class Zone : MonoBehaviour
     {
         Building[] buildings = new Building[32];
 
+        int level = GameFileManager.GameFile.CurrentLevel;
+
         for(int i = 0; i < 32; i++)
         {
             buildings[i] = new Building();
@@ -144,11 +154,11 @@ public class Zone : MonoBehaviour
             buildings[i].Gang.CommonWeapon = CommonWeapons[Random.Range(0, CommonWeapons.Length)];
             buildings[i].Gang.RareWeapon = RareWeapons[Random.Range(0, RareWeapons.Length)];
 
-            buildings[i].Gang.Awareness = Random.Range(5,6+i);
-            buildings[i].Gang.Engage = Random.Range(5, 6+i);
-            buildings[i].Gang.TriggerRate = Random.Range(1f, (8f / (i + 1f)) + 1f); // Random.Range(100/(i +1),200/ (i + 1));
-            buildings[i].Gang.Speed = Random.Range(1 + i, 11 + i);
-            buildings[i].Gang.Health = Random.Range(2 + i, 12 + i);
+            buildings[i].Gang.Awareness = Random.Range(5,6+i + level);
+            buildings[i].Gang.Engage = Random.Range(5, 6+i + level);
+            buildings[i].Gang.TriggerRate = Random.Range(1f, (8f / (i + level + 1f)) + 1f); // Random.Range(100/(i +1),200/ (i + 1));
+            buildings[i].Gang.Speed = Random.Range(1 + i, 11 + i + level);
+            buildings[i].Gang.Health = Random.Range(2 + i, 12 + i + level);
             buildings[i].Gang.BodyColour = new Color(Random.Range(1, 10) * 0.1f, Random.Range(1, 10) * 0.1f, Random.Range(1, 10) * 0.1f);
             buildings[i].Gang.LegColour = new Color(Random.Range(1, 10) * 0.1f, Random.Range(1, 10) * 0.1f, Random.Range(1, 10) * 0.1f);
         }

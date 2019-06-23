@@ -316,6 +316,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     void NextLevel()
     {
+        GameFileManager.GameFile.CurrentLevel++;
+        GameFileManager.Save();
         SceneManager.LoadScene("Level1");
     }
 
@@ -405,6 +407,9 @@ public class Sentity : MonoBehaviour, ITakeDamage
             RunScore.instance.Display();
             Scoreboard.scoreboard.LogScore();
             scoreLogged = true;
+            GameFileManager.GameFile.CurrentScore = 0;
+            GameFileManager.GameFile.CurrentLevel = 1;
+            GameFileManager.Save();
         } else if (!IsDead)
         {
             Scoreboard.scoreboard.IncreaseScore(10,transform.position);
