@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject GameOverCanvas;
     public GameObject VictoryCanvas;
+    public GameObject LevelCompleteCanvas;
 
     private void Awake()
     {
@@ -24,5 +25,11 @@ public class UIManager : MonoBehaviour
     {
         GameOverCanvas.SetActive(false);
         VictoryCanvas.SetActive(true);
+    }
+
+    public void LevelComplete()
+    {
+        GameOverCanvas.SetActive(false);
+        LevelCompleteCanvas.SetActive(true);
     }
 }

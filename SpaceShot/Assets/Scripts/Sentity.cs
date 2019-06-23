@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sentity : MonoBehaviour, ITakeDamage
 {
@@ -292,21 +293,30 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     void CheckWin()
     {
-        if (transform.position.x > 260f && !scoreLogged)
+        if (transform.position.x > 70f && !scoreLogged)
         {
             LevelTimer.instance.win = true;
             Scoreboard.scoreboard.IncreaseScore(100,transform.position);
             //RunScore.instance.Display();
             Scoreboard.scoreboard.LogScore();
             Disarm();
-            UIManager.instance.Victory();
+            // UIManager.instance.Victory();
+            UIManager.instance.LevelComplete();
             scoreLogged = true;
             RunScore.instance.Display();
+
+            Invoke("NextLevel", 3f);
+
         }
         if (transform.position.x < -20f)
         {
             Kill();
         }
+    }
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene("Level1");
     }
 
     public void TriggerWeapon()

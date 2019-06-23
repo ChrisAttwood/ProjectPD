@@ -25,7 +25,7 @@ public class Zone : MonoBehaviour
     public Chunk[] Chunks;
 
     public int ChunkScale = 8;
-
+    public int LevelLength = 64;
 
     private void Awake()
     {
@@ -33,11 +33,11 @@ public class Zone : MonoBehaviour
         Buildings = CreateBuildings();
 
 
-        data = new int[256,16];
+        data = new int[LevelLength, 16];
 
       
 
-        for (int x = 0; x < 256; x+=8)
+        for (int x = 0; x < LevelLength; x+=8)
         {
 
             for (int y = 0; y < 16; y+=8)
@@ -59,7 +59,7 @@ public class Zone : MonoBehaviour
         }
 
 
-        for (int x = 0; x < 256; x++)
+        for (int x = 0; x < LevelLength; x++)
         {
             for (int y = 0; y < 16; y++)
             {
