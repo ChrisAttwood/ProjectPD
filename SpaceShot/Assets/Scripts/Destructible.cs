@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer), typeof(PolygonCollider2D))]
 public class Destructible : MonoBehaviour ,ITakeDamage {
 
     Color[,] Orignal;
-    public GameObject Pixel;
 
     int scale = 32;
 
 
     SpriteRenderer spriteRenderer;
     PolygonCollider2D polygonCollider2D;
-   
-    
+
+    System.Diagnostics.Stopwatch sw;
 
     void Awake()
     {
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
     }
@@ -42,7 +42,10 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     public void TakeDamage(Vector2 source, float radius, int amount)
     {
+
+        
         SnapShot();
+
 
         for (int x = 0; x < scale; x++)
         {
@@ -59,8 +62,10 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
                         if (Random.Range(0f, 1f) > 0.9f)
                         {
-                            GameObject pixel = Instantiate(Pixel);
-                            pixel.GetComponent<SpriteRenderer>().color = spriteRenderer.color;//Orignal[x, y];
+                            
+                            var pixel = PixelPool.instance.Get();
+                            pixel.Set();
+                            pixel.SpriteRenderer.color = spriteRenderer.color;
                             pixel.transform.position = new Vector2(X, Y);
                         }
 
@@ -70,8 +75,8 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
                 }
             }
         }
+
         Paint(Orignal);
-       
     }
 
 
@@ -81,7 +86,8 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
         texture.wrapMode = TextureWrapMode.Clamp;
         texture.filterMode = FilterMode.Point;
 
-        bool HasMat = false;
+
+        int pixelCount = 0;
 
         for (int x = 0; x < texture.width; x++)
         {
@@ -89,11 +95,11 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
             {
                 texture.SetPixel(x, y, colours[x, y]);
 
-                if (!HasMat)
+               if(pixelCount<100)
                 {
                     if (colours[x, y].a > 0f)
                     {
-                        HasMat = true;
+                        pixelCount++;
                     }
                 }
 
@@ -104,7 +110,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
      
 
-        if (HasMat)
+        if (pixelCount>=100)
         {
            
             ReCalculateCollider();
@@ -128,6 +134,13 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
         }
     }
 
+    public void ReBuildCollider()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        polygonCollider2D = GetComponent<PolygonCollider2D>();
+        ReCalculateCollider();
+    }
+
     void ReCalculateCollider()
     {
 
@@ -139,7 +152,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
         segments = GetSegments(spriteRenderer.sprite.texture);
         List<List<Vector2>> paths;
 
-        paths = FindPaths(segments);
+         paths = FindPaths(segments);
         paths = ConvertToLocal(paths, spriteRenderer.sprite);
         paths = CalculatePivot(paths, spriteRenderer.sprite);
         polygonCollider2D.pathCount = paths.Count;
@@ -200,10 +213,10 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
         {
             for (int width = 0; width < texture.width; width++)
             {
-                
+
                 if (texture.GetPixel(width, height).a != 0)
                 {
-                  
+
                     if (height + 1 >= texture.height || texture.GetPixel(width, height + 1).a == 0)
                     {
                         output.Add(new ColliderSegment(new Vector2(width, height + 1), new Vector2(width + 1, height + 1)));
@@ -220,11 +233,14 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
                     {
                         output.Add(new ColliderSegment(new Vector2(width, height), new Vector2(width, height + 1)));
                     }
+
+
                 }
             }
         }
         return output;
     }
+
 
     private List<List<Vector2>> ConvertToLocal(List<List<Vector2>> original, Sprite sprite)
     {

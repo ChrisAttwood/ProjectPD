@@ -84,7 +84,7 @@ public class Equipment : MonoBehaviour
 
     void Fire()
     {
-        var projectile = Instantiate(Projectile);
+        var projectile = ProjectilePool.instance.Get();
         projectile.Create(Ammo, playerShot);
         projectile.transform.position = LaunchPoint.position;
         if (Flipped)

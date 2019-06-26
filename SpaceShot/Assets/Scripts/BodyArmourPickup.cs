@@ -33,7 +33,8 @@ public class BodyArmourPickup : MonoBehaviour
 
     private void HidePickup()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(gameObject);
+        //GetComponent<SpriteRenderer>().enabled = false;
+        //GetComponent<BoxCollider2D>().enabled = false;
     }
 }

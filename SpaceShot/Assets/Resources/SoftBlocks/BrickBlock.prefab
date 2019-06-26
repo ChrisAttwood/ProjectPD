@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6184426991198375662}
   - component: {fileID: 2444269506243225680}
-  - component: {fileID: 2923844158685884359}
-  - component: {fileID: 1645927494229088311}
+  - component: {fileID: -4169286749046669628}
+  - component: {fileID: -3474717805611358322}
   m_Layer: 0
   m_Name: BrickBlock
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2923844158685884359
+--- !u!60 &-4169286749046669628
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
---- !u!114 &1645927494229088311
+--- !u!114 &-3474717805611358322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

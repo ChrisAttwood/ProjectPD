@@ -19,6 +19,16 @@ public class Scoreboard : MonoBehaviour
     public void Awake()
     {
         scoreboard = this;
+
+        //score = GameFileManager.GameFile.CurrentScore;
+
+        //UpdateScore();
+    }
+
+    private void Start()
+    {
+        unmodifiedScore = GameFileManager.GameFile.CurrentScore;
+        //Debug.Log(GameFileManager.GameFile.CurrentScore);
         UpdateScore();
     }
 
@@ -42,11 +52,15 @@ public class Scoreboard : MonoBehaviour
         score = Mathf.RoundToInt(unmodifiedScore * timeBonus);
         if(GameFileManager.GameFile!=null)
         {
+            GameFileManager.GameFile.CurrentScore += score;
+            GameFileManager.Save();
             if (GameFileManager.GameFile.HighScore < score)
             {
                 GameFileManager.GameFile.HighScore = score;
                 GameFileManager.Save();
             }
+
+
 
         }
 

@@ -11,6 +11,10 @@ public class HighScoreTable : MonoBehaviour
     {
         GameFileManager.Load();
         Text.text = "High Score : " + GameFileManager.GameFile.HighScore;
+
+        GameFileManager.GameFile.CurrentScore = 0;
+        GameFileManager.GameFile.CurrentLevel = 1;
+        GameFileManager.Save();
     }
 
     // Update is called once per frame
