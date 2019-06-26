@@ -15,6 +15,7 @@ public class Zone : MonoBehaviour
     public Equipment[] CommonWeapons;
     public Equipment[] RareWeapons;
     public GameObject[] hazardBlocks;
+    public GameObject platform;
 
     public GameObject[] PickUps;
 
@@ -110,7 +111,10 @@ public class Zone : MonoBehaviour
                 var hazb = Instantiate(building.HazardBlock);
 
                 return hazb;
+            case 100:
+                var plat = Instantiate(building.Platform);
 
+                return plat;
         }
 
         return null;
@@ -139,6 +143,7 @@ public class Zone : MonoBehaviour
             buildings[i].HardBlock = HardBlocks[Random.Range(0, HardBlocks.Length)];
             // Seb's new code
             buildings[i].HazardBlock = hazardBlocks[Random.Range(0, hazardBlocks.Length)];
+            buildings[i].Platform = platform;
             //buildings[i].SoftColour = new Color(Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f, Random.Range(5, 8) * 0.1f);
             //buildings[i].HardColour = new Color(Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f, Random.Range(2, 5) * 0.1f);
 
@@ -174,6 +179,7 @@ public class Building
     public GameObject SoftBlock;
     public GameObject HardBlock;
     public GameObject HazardBlock;
+    public GameObject Platform;
     public Color SoftColour;
     public Color HardColour;
     public Color HazardColour;
