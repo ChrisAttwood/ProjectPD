@@ -15,7 +15,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public GameObject SoulHandRight;
     public GameObject SoulFootLeft;
     public GameObject SoulFootRight;
-
+    
   
 
     public GameObject Eyes;
@@ -52,6 +52,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public int Armour { get; set; }
 
     public List<Collider2D> Grounds;
+    public List<Collider2D> Cliffs;
 
     public Throwable throwableEquipped;
 
@@ -102,6 +103,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
     private void Awake()
     {
         Grounds = new List<Collider2D>();
+        Cliffs = new List<Collider2D>();
         Rigidbody2D = GetComponent<Rigidbody2D>();
 
         var st = SkinTones[Random.Range(0, SkinTones.Length)];
@@ -470,7 +472,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
         {
             if (v2.y > 0f)
             {
-                v2.y = 4f;
+                v2.y = 3f;
             }
             Rigidbody2D.AddForce(v2 * 100f);
             IsGrounded = false;
@@ -512,11 +514,24 @@ public class Sentity : MonoBehaviour, ITakeDamage
     {
         //Limit velocity to avoid moving thought colliders
         //Also helps handling
-        if (Rigidbody2D.velocity.magnitude > 10f)
+
+        float max = 10f;
+       
+        if(Mathf.Abs(Rigidbody2D.velocity.x) > 3f)
         {
             Vector2 v = Rigidbody2D.velocity;
             v.Normalize();
-            Rigidbody2D.velocity = v * 10f;
+            Vector2 v2 = Rigidbody2D.velocity;
+            v2.x = v.x * 3f;
+            Rigidbody2D.velocity = v2;
+        }
+
+
+        if (Rigidbody2D.velocity.magnitude > max)
+        {
+            Vector2 v = Rigidbody2D.velocity;
+            v.Normalize();
+            Rigidbody2D.velocity = v * max;
         }
     }
 

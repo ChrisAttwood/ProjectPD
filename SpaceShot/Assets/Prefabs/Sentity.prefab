@@ -1119,6 +1119,7 @@ MonoBehaviour:
   Grenades: 5
   Speed: 0
   Grounds: []
+  Cliffs: []
   throwableEquipped: {fileID: 7302204260777595199, guid: 4fcc081a524bc0c49b62b2e7c4cf5b05,
     type: 3}
   scoreLogged: 0
