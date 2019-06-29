@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class LevelConfig 
+[CreateAssetMenu]
+public class LevelConfig : ScriptableObject
 {
     [Header("Core")]
     public string Name;
-    public int LevelLength = 64;
+    public int LevelLength = 8;
+    public Equipment StartWeapon;
+
     [Header("Chunk Data")]
     public Chunk[] Chunks;
     [Header("Enemy Data")]

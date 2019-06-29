@@ -25,7 +25,7 @@ public class Level : MonoBehaviour
     {
         var player = Instantiate(Configuration.Data.SentityPrefab);
         player.transform.position = new Vector2(-5f, 5f);
-        player.CreatePlayer(LevelConfig.Gang.CommonWeapon);
+        player.CreatePlayer(LevelConfig.StartWeapon);
     }
 
 
