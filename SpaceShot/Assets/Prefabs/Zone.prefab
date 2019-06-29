@@ -63,8 +63,11 @@ MonoBehaviour:
   - {fileID: 4479332627625166441, guid: 57cf15cb78a064949b5dede14a92bfd6, type: 3}
   hazardBlocks:
   - {fileID: 4264662652247296128, guid: b690f02825ec9ad4980bdd935d46fa69, type: 3}
-  bodyArmourPickup: {fileID: 1953470136834101501, guid: 2c551e23b22ce3c438da9c07606fef3b,
+  platform: {fileID: 1408348430435522812, guid: 9224d5d7e76215648a22462369a79764,
     type: 3}
+  PickUps:
+  - {fileID: 1953470136834101501, guid: 2c551e23b22ce3c438da9c07606fef3b, type: 3}
+  - {fileID: 570299033237635612, guid: e3d85a48e70a25843ad1be7b0a801922, type: 3}
   Chunks:
   - {fileID: 11400000, guid: d7a3aa1fc2f74c24580c7ebb84b88d1f, type: 2}
   - {fileID: 11400000, guid: 8790b3fc4b6422b4c893ab5fc45ee671, type: 2}
@@ -86,4 +89,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c47283d4e9ba0fe49ab56e541ec87074, type: 2}
   - {fileID: 11400000, guid: be80c435d54b24442a87e4fc55354e1e, type: 2}
   - {fileID: 11400000, guid: ebe43fdefb25b704085859e83b24cc2c, type: 2}
+  - {fileID: 11400000, guid: 824a9e1f9311f3b4c8796ea48af55bdd, type: 2}
+  - {fileID: 11400000, guid: 1694bfc09578631439e5bf1d527a9b84, type: 2}
+  - {fileID: 11400000, guid: 7a7e5e7c02b477448861d047f62fb975, type: 2}
+  - {fileID: 11400000, guid: 3db6446f76a136348b9ccfda4d092585, type: 2}
+  - {fileID: 11400000, guid: 3db6446f76a136348b9ccfda4d092585, type: 2}
+  - {fileID: 11400000, guid: 3db6446f76a136348b9ccfda4d092585, type: 2}
   ChunkScale: 8
+  LevelLength: 64

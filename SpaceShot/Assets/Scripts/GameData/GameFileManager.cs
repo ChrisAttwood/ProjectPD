@@ -13,7 +13,7 @@ public static class GameFileManager {
     public static void Save()
     {
         Save(GameFile, "CopMan4");
-      //  Load();//to create new ScriptableObjects and not alter orignals
+     
     }
 
     public static void Load()

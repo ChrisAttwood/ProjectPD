@@ -58,7 +58,6 @@ public class Zone : MonoBehaviour
                 {
                     for (int cY = 0; cY < 8; cY++)
                     {
-
                         data[x + cX, y + cY] = chunk.ChunkData.rows[cY].row[cX];
                     }
                 }
@@ -190,19 +189,19 @@ public class Building
 
 }
 
-public class Gang
-{
+//public class Gang
+//{
 
-    public Equipment CommonWeapon;
-    public Equipment RareWeapon;
+//    public Equipment CommonWeapon;
+//    public Equipment RareWeapon;
 
-    public float Awareness = 10f;
-    public float Engage = 5f;
-    public float TriggerRate = 1f;
-    public float Speed = 5f;
-    public int Health = 10;
+//    public float Awareness = 10f;
+//    public float Engage = 5f;
+//    public float TriggerRate = 1f;
+//    public float Speed = 5f;
+//    public int Health = 10;
 
-    public Color BodyColour = Color.white;
-    public Color LegColour = Color.white;
+//    public Color BodyColour = Color.white;
+//    public Color LegColour = Color.white;
 
-}
+//}

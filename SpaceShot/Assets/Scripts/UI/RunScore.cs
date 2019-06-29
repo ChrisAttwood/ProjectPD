@@ -10,7 +10,7 @@ public class RunScore : MonoBehaviour
     public Text RunScoreText;
     public Text TimeMultiplierText;
     public Text FinalScoreText;
-
+    public GameObject Back;
     private void Awake()
     {
         instance = this;
@@ -26,6 +26,7 @@ public class RunScore : MonoBehaviour
             RunScoreText.text = "This Run : " + Scoreboard.scoreboard.unmodifiedScore;
             TimeMultiplierText.text = "Time Bonus x " + LevelTimer.instance.ReturnTimeBonus();
             FinalScoreText.text = "Final Score : " + Scoreboard.scoreboard.score;
+            Back.SetActive(true);
         }
        
     }

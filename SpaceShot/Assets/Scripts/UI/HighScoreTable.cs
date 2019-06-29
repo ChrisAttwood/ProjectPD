@@ -13,7 +13,7 @@ public class HighScoreTable : MonoBehaviour
         Text.text = "High Score : " + GameFileManager.GameFile.HighScore;
 
         GameFileManager.GameFile.CurrentScore = 0;
-        GameFileManager.GameFile.CurrentLevel = 1;
+        GameFileManager.GameFile.CurrentLevel = Configuration.Data.StartLevel;
         GameFileManager.Save();
     }
 

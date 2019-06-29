@@ -295,7 +295,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     void CheckWin()
     {
-        if (transform.position.x > 70f && !scoreLogged)
+        if (transform.position.x > Configuration.Data.CurrentLevel().LevelLength * 8 + 5 && !scoreLogged)
         {
             LevelTimer.instance.win = true;
             Scoreboard.scoreboard.IncreaseScore(100,transform.position);
@@ -319,8 +319,20 @@ public class Sentity : MonoBehaviour, ITakeDamage
     void NextLevel()
     {
         GameFileManager.GameFile.CurrentLevel++;
+
+
         GameFileManager.Save();
-        SceneManager.LoadScene("Level1");
+
+        if (GameFileManager.GameFile.CurrentLevel >= Configuration.Data.Levels.Length)
+        {
+            SceneManager.LoadScene("Complete");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level");
+        }
+
+       
     }
 
     public void TriggerWeapon()
@@ -410,7 +422,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             Scoreboard.scoreboard.LogScore();
             scoreLogged = true;
             GameFileManager.GameFile.CurrentScore = 0;
-            GameFileManager.GameFile.CurrentLevel = 1;
+            GameFileManager.GameFile.CurrentLevel = 0;
             GameFileManager.Save();
         } else if (!IsDead)
         {
@@ -515,23 +527,24 @@ public class Sentity : MonoBehaviour, ITakeDamage
         //Limit velocity to avoid moving thought colliders
         //Also helps handling
 
-        float max = 10f;
-       
-        if(Mathf.Abs(Rigidbody2D.velocity.x) > 3f)
+        float maxTotal = Configuration.Data.MaxTotalVelocity;
+        float maxHorizontal = Configuration.Data.MaxHorizontalVelocity;
+
+        if (Mathf.Abs(Rigidbody2D.velocity.x) > maxHorizontal)
         {
             Vector2 v = Rigidbody2D.velocity;
             v.Normalize();
             Vector2 v2 = Rigidbody2D.velocity;
-            v2.x = v.x * 3f;
+            v2.x = v.x * maxHorizontal;
             Rigidbody2D.velocity = v2;
         }
 
 
-        if (Rigidbody2D.velocity.magnitude > max)
+        if (Rigidbody2D.velocity.magnitude > maxTotal)
         {
             Vector2 v = Rigidbody2D.velocity;
             v.Normalize();
-            Rigidbody2D.velocity = v * max;
+            Rigidbody2D.velocity = v * maxTotal;
         }
     }
 
