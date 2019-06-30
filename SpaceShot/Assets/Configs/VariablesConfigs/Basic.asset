@@ -15,6 +15,7 @@ MonoBehaviour:
   JumpPower: 100
   AntiJumpPower: 50
   DoubleJumpBoost: 3
+  JumpBoost: 3
   PlayerSpeed: 5
   PlayerHealth: 10
   GrenadeThrowMax: 75
