@@ -13,9 +13,7 @@ public class Configuration : MonoBehaviour
     [Header("Sentity")]
     public Sentity SentityPrefab;
 
-    [Header("Sentity Config")]
-    public float MaxTotalVelocity = 10f;
-    public float MaxHorizontalVelocity = 3f;
+    public VariablesConfig Config;
 
 
     [Header("Levels")]

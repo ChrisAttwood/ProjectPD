@@ -10,10 +10,11 @@ public class PlayerSentity : MonoBehaviour
 
     bool Jumping = false;
     float throwCharge = 0f;
-    float throwLimit = 75f;
+    float throwLimit;
 
     private void Awake()
     {
+        throwLimit = Configuration.Data.Config.GrenadeThrowMax;
         Sentity = GetComponent<Sentity>();
     }
 

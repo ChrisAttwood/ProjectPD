@@ -94,8 +94,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
         var player = gameObject.AddComponent<PlayerSentity>();
         GameObject.Find("Target").GetComponent<Target>().Sentity = this;
         Camera.main.GetComponent<SmoothCamera2D>().target = this.transform;
-        Speed = 5f;
-        Health = 10;
+        Speed = Configuration.Data.Config.PlayerSpeed;
+        Health = Configuration.Data.Config.PlayerHealth;
         Equipment = Instantiate(equipment);
     }
 
@@ -262,9 +262,6 @@ public class Sentity : MonoBehaviour, ITakeDamage
             var s = cs[i].gameObject.GetComponentInParent<Sentity>();
             if (s != null && s != this)
             {
-               // var direction = (Vector2)cs[i].transform.position - pos;
-
-               // s.TakeDamage(pos, direction * 100f , 10);
                 s.TakeDamage(pos, 0.1f, 10);
             }
 
@@ -484,9 +481,9 @@ public class Sentity : MonoBehaviour, ITakeDamage
         {
             if (v2.y > 0f)
             {
-                v2.y = 3f;
+                v2.y = Configuration.Data.Config.JumpBoost;
             }
-            Rigidbody2D.AddForce(v2 * 100f);
+            Rigidbody2D.AddForce(v2 * Configuration.Data.Config.JumpPower);
             IsGrounded = false;
         }
         else
@@ -505,10 +502,10 @@ public class Sentity : MonoBehaviour, ITakeDamage
                 if (vector2.y > 0f && Jumping && !LeapTriggered && Grounds.Count ==0)
                 {
                     LeapTriggered = true;
-                    v2.y = 3f;
+                    v2.y = Configuration.Data.Config.DoubleJumpBoost;
                 }
             }
-            Rigidbody2D.AddForce(v2 * 50f);
+            Rigidbody2D.AddForce(v2 * Configuration.Data.Config.AntiJumpPower);
         }
         if (Jumping)
         {
@@ -527,8 +524,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
         //Limit velocity to avoid moving thought colliders
         //Also helps handling
 
-        float maxTotal = Configuration.Data.MaxTotalVelocity;
-        float maxHorizontal = Configuration.Data.MaxHorizontalVelocity;
+        float maxTotal = Configuration.Data.Config.MaxTotalVelocity;
+        float maxHorizontal = Configuration.Data.Config.MaxHorizontalVelocity;
 
         if (Mathf.Abs(Rigidbody2D.velocity.x) > maxHorizontal)
         {
