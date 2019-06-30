@@ -24,8 +24,13 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetupPlayer();
+    }
+
+    void SetupPlayer()
+    {
         playerSentity = GameObject.FindGameObjectWithTag("Player").GetComponent<Sentity>();
-        startHealth = (float) playerSentity.Health;
+        startHealth = (float)playerSentity.Health;
     }
 
     // Update is called once per frame
@@ -36,12 +41,19 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateBar()
     {
-        float currentHealth = (float)playerSentity.Health;
-        float fraction = currentHealth / startHealth;
-        Vector3 newSize = standardSize;
-        newSize.x = fraction * standardSize.x;
-        resourceRT.sizeDelta = newSize;
-        SetColour(fraction);
+        if (playerSentity == null)
+        {
+            SetupPlayer();
+        }
+        else
+        {
+            float currentHealth = (float)playerSentity.Health;
+            float fraction = currentHealth / startHealth;
+            Vector3 newSize = standardSize;
+            newSize.x = fraction * standardSize.x;
+            resourceRT.sizeDelta = newSize;
+            SetColour(fraction);
+        }
     }
 
     public void SetColour(float fraction)
