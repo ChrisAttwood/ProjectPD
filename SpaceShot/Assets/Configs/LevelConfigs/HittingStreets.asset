@@ -41,7 +41,7 @@ MonoBehaviour:
   - {fileID: 4212559539517258395, guid: 17b85a64dfb85e84d887c8df82ad1d71, type: 3}
   PickUps:
   - {fileID: 1953470136834101501, guid: 2c551e23b22ce3c438da9c07606fef3b, type: 3}
-  SoftBlock: {fileID: 3467089644877447359, guid: 4e7dc99807b73ac4289d5d1a8e2b58ef,
+  SoftBlock: {fileID: 8774476919938625930, guid: b33793e6d168bf447a31c6e004f27a9b,
     type: 3}
   HardBlock: {fileID: 5515432535331499030, guid: 140156125c3495d46a4c9e390e73c1b2,
     type: 3}

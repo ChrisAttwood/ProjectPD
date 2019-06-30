@@ -15,7 +15,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     System.Diagnostics.Stopwatch sw;
 
-    int Health = 100;
+    public int Health = 100;
 
     public Sprite[] Cracks;
     public SpriteRenderer CrackDisplay;

@@ -11,6 +11,7 @@ public class PlayerSentity : MonoBehaviour
     bool Jumping = false;
     float throwCharge = 0f;
     float throwLimit;
+    bool OnLadder = false;
 
     private void Awake()
     {

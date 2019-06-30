@@ -85,7 +85,18 @@ public class Level : MonoBehaviour
         {
             case 1:
                 var sb = Instantiate(LevelConfig.SoftBlock);
-                sb.GetComponent<SpriteRenderer>().color = LevelConfig.SoftBlockColour;
+                //sb.GetComponent<SpriteRenderer>().color = LevelConfig.SoftBlockColour;
+                if (sb.GetComponent<SpriteRenderer>() != null)
+                {
+                    sb.GetComponent<SpriteRenderer>().color = LevelConfig.SoftBlockColour;
+                }
+                else
+                {
+                    foreach (SpriteRenderer sr in sb.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sr.color = LevelConfig.SoftBlockColour;
+                    }
+                }
                 return sb;
             case 2:
                 var hb = Instantiate(LevelConfig.HardBlock);

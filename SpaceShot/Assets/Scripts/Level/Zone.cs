@@ -91,7 +91,17 @@ public class Zone : MonoBehaviour
         {
             case 1:
                 var sb = Instantiate(building.SoftBlock);
-                sb.GetComponent<SpriteRenderer>().color = building.SoftColour;
+                if (sb.GetComponent<SpriteRenderer>() != null)
+                {
+                    sb.GetComponent<SpriteRenderer>().color = building.SoftColour;
+                }
+                else
+                {
+                    foreach (SpriteRenderer sr in sb.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        sr.color = building.SoftColour;
+                    }
+                }
                 return sb;
             case 2:
                 var hb = Instantiate(building.HardBlock);
