@@ -3672,6 +3672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf55646c9875514685629f627c09b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParallaxPrefab: {fileID: 5717988392794908672, guid: 632f14d072dce154fbb35f6236d89f47,
+    type: 3}
 --- !u!1 &1963890605
 GameObject:
   m_ObjectHideFlags: 0

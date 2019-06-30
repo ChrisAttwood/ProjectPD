@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ParallaxSpawner : MonoBehaviour
 {
+    public Parallax ParallaxPrefab;
+
     void Start()
     {
 
@@ -18,11 +20,7 @@ public class ParallaxSpawner : MonoBehaviour
                 depth -= 25;
             }
 
-            // var p = Instantiate(Configuration.Data.Levels[GameFileManager.GameFile.CurrentLevel].ParallaxObjects.GetRandom());
-
-            //CurrentLevel()
-
-            var p = Instantiate(Configuration.Data.CurrentLevel().ParallaxObjects.GetRandom());
+            var p = Instantiate(ParallaxPrefab);
 
             p.Depth = depth;
 
@@ -30,8 +28,7 @@ public class ParallaxSpawner : MonoBehaviour
 
             float scale = 200f / (depth + 100);
             p.transform.localScale = new Vector2(scale, scale);
-
-            float tone = 0.6f - depth / 100f;
+            float tone = 0.8f - depth / 100f;
 
             p.GetComponent<SpriteRenderer>().color = new Color(tone, tone, tone);
 
