@@ -471,7 +471,8 @@ public class Sentity : MonoBehaviour, ITakeDamage
         }
         if (Mathf.Abs(Rigidbody2D.velocity.x) > Speed)
         {
-            v2.x = 0f;
+             v2.x = 0f;
+           
         }
         if (Mathf.Abs(Rigidbody2D.velocity.y) > Speed)
         {

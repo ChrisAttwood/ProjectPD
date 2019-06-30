@@ -15,9 +15,15 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     System.Diagnostics.Stopwatch sw;
 
+    int Health = 100;
+
+    public Sprite[] Cracks;
+    public SpriteRenderer CrackDisplay;
+
+
     void Awake()
     {
-
+        CrackDisplay.transform.localRotation = Quaternion.Euler(0f, 0f, Random.Range(0, 4) * 90f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
     }
@@ -43,40 +49,87 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
     public void TakeDamage(Vector2 source, float radius, int amount)
     {
 
-        
-        SnapShot();
-
-
-        for (int x = 0; x < scale; x++)
+        if (Configuration.Data.PixelDestructible)
         {
-            for (int y = 0; y < scale; y++)
+
+            SnapShot();
+            for (int x = 0; x < scale; x++)
             {
-                float X = transform.position.x + ((x - 16) / 32f);
-                float Y = transform.position.y + ((y - 16) / 32f);
-
-
-                if (Vector2.Distance(source, new Vector2(X, Y)) < radius)
+                for (int y = 0; y < scale; y++)
                 {
-                    if (Orignal[x, y].a > 0f)
-                    {
+                    float X = transform.position.x + ((x - 16) / 32f);
+                    float Y = transform.position.y + ((y - 16) / 32f);
 
-                        if (Random.Range(0f, 1f) > 0.9f)
+
+                    if (Vector2.Distance(source, new Vector2(X, Y)) < radius)
+                    {
+                        if (Orignal[x, y].a > 0f)
                         {
+
+                            if (Random.Range(0f, 1f) > 0.9f)
+                            {
                             
-                            var pixel = PixelPool.instance.Get();
-                            pixel.Set();
-                            pixel.SpriteRenderer.color = spriteRenderer.color;
-                            pixel.transform.position = new Vector2(X, Y);
+                                var pixel = PixelPool.instance.Get();
+                                pixel.Set();
+                                pixel.SpriteRenderer.color = spriteRenderer.color;
+                                pixel.transform.position = new Vector2(X, Y);
+                            }
+
                         }
 
+                        Orignal[x, y] = new Color(0f, 0f, 0f, 0f);
                     }
-
-                    Orignal[x, y] = new Color(0f, 0f, 0f, 0f);
                 }
             }
-        }
 
-        Paint(Orignal);
+            Paint(Orignal);
+
+        }
+        else
+        {
+            Health -= amount;
+
+            float percent = (Health*1f) / 100f;
+            int index = (int)(percent * Cracks.Length);
+            index = Cracks.Length - index;
+            if (index >= Cracks.Length)
+            {
+                index = Cracks.Length - 1;
+            }
+
+            if (index < 0)
+            {
+                index = 0;
+            }
+           
+            CrackDisplay.sprite = Cracks[index];
+
+            if (Health <= 0)
+            {
+                for(int x = -5; x < 5; x++)
+                {
+                    for (int y = -5; y < 5; y++)
+                    {
+                        var pixel = PixelPool.instance.Get();
+                        pixel.Set();
+                        pixel.SpriteRenderer.color = spriteRenderer.color;
+                        pixel.transform.position = new Vector2(transform.position.x + x/10f, transform.position.y + y / 10f);
+                    }
+                }
+
+                //for(int i = 0; i < 20; i++)
+                //{
+                //    var pixel = PixelPool.instance.Get();
+                //    pixel.Set();
+                //    pixel.SpriteRenderer.color = spriteRenderer.color;
+                //    pixel.transform.position = new Vector2(transform.position.x, transform.position.y);
+                //}
+               
+
+                Destroy(gameObject);
+            }
+        }
+        
     }
 
 
