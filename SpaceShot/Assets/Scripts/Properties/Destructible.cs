@@ -16,6 +16,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
     System.Diagnostics.Stopwatch sw;
 
     public int Health = 100;
+    float maxHealth;
 
     public Sprite[] Cracks;
     public SpriteRenderer CrackDisplay;
@@ -23,6 +24,8 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
 
     void Awake()
     {
+        maxHealth = Health * 1f;
+
         CrackDisplay.transform.localRotation = Quaternion.Euler(0f, 0f, Random.Range(0, 4) * 90f);
         spriteRenderer = GetComponent<SpriteRenderer>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
@@ -89,7 +92,7 @@ public class Destructible : MonoBehaviour ,ITakeDamage {
         {
             Health -= amount;
 
-            float percent = (Health*1f) / 100f;
+            float percent = (Health*1f) / maxHealth;
             int index = (int)(percent * Cracks.Length);
             index = Cracks.Length - index;
             if (index >= Cracks.Length)

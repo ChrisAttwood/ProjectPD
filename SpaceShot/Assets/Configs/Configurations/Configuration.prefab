@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3830d29cd4f08f245baf75d5aedb304a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartLevel: 0
+  StartLevel: 2
+  PixelDestructible: 0
   SentityPrefab: {fileID: 5186770528797671781, guid: c5468c7a88db77247a762a33162a006c,
     type: 3}
   Config: {fileID: 11400000, guid: 2fd9e356fc6527c4cb6286498b9c12b5, type: 2}
