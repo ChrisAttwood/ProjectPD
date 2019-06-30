@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Training Day
   LevelLength: 8
-  StartWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
+  StartWeapon: {fileID: 8670837561342152585, guid: 3fa4ffc002cfca845bad393e4afbfa33,
     type: 3}
   Chunks:
   - {fileID: 11400000, guid: 76c9ef40134abff4ea0e4db2e35fb135, type: 2}

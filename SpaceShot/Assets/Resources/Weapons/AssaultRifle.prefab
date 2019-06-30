@@ -106,6 +106,7 @@ MonoBehaviour:
   Burst: 3
   Rate: 0.1
   Power: 1
+  Scatter: 0.05
   Ammo:
     Sprite: {fileID: 21300000, guid: 1e7d72e464c12114c904801131374014, type: 3}
     Color: {r: 1, g: 1, b: 0, a: 1}

@@ -14,7 +14,12 @@ public class Equipment : MonoBehaviour
     public float Rate = 0.1f;
     [Range(0f, 1f)]
     public float Power = 1f;
+
+    [Range(0f,0.2f)]
+    public float Scatter = 0f;
     public Ammo Ammo;
+
+   
 
     private bool playerShot;
 
@@ -87,13 +92,20 @@ public class Equipment : MonoBehaviour
         var projectile = ProjectilePool.instance.Get();
         projectile.Create(Ammo, playerShot);
         projectile.transform.position = LaunchPoint.position;
+
+        Vector2 trajectory = transform.right;
+
+        trajectory += new Vector2(Random.Range(-Scatter, Scatter), Random.Range(-Scatter, Scatter));
+
+
         if (Flipped)
         {
-            projectile.Launch(transform.right * -1f, Power);
+
+            projectile.Launch(trajectory * -1f, Power);
         }
         else
         {
-            projectile.Launch(transform.right, Power);
+            projectile.Launch(trajectory, Power);
         }
 
         AudioSource.PlayClipAtPoint(SoundEffect, transform.position, 1f);

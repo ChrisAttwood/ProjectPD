@@ -205,6 +205,7 @@ MonoBehaviour:
     Blast: 0.4
     Damage: 5
     DamageAll: 0
+  Scatter: 0
   Projectile: {fileID: 1083188735432687101, guid: fbaeb0759d11c8d40a0b4978a1985bd2,
     type: 3}
 --- !u!61 &7308450958916843387
