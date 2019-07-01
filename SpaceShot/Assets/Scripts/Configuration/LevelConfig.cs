@@ -31,7 +31,10 @@ public class LevelConfig : ScriptableObject
 
     [Header("Background")]
     public Sprite Sky;
-    public Parallax[] ParallaxObjects;
+    public Sprite[] ParallaxSprites;
+
+
+
 
 }
 
