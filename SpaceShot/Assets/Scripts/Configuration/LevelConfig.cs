@@ -18,6 +18,7 @@ public class LevelConfig : ScriptableObject
     [Header("Colours")]
     public Color SoftBlockColour = Color.white;
     public Color HardBlockColour = Color.gray;
+    public Color LadderColour = Color.black;
 
     [Header("Resources")]
     public GameObject[] Clutter;
@@ -26,6 +27,7 @@ public class LevelConfig : ScriptableObject
     public GameObject HardBlock;
     public GameObject Liquid;
     public GameObject Platform;
+    public GameObject Ladder;
 
     [Header("Background")]
     public Sprite Sky;

@@ -115,6 +115,11 @@ public class Level : MonoBehaviour
                 var hazb = Instantiate(LevelConfig.Liquid);
 
                 return hazb;
+            case 7:
+                var ladder = Instantiate(LevelConfig.Ladder);
+                ladder.GetComponent<SpriteRenderer>().color = LevelConfig.LadderColour;
+                return ladder;
+            
             case 100:
                 var plat = Instantiate(LevelConfig.Platform);
 

@@ -23,6 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d2497d7a603f754aadaa070d550f5fd, type: 2}
   - {fileID: 11400000, guid: ed7522709941f454f86ca53b64d40705, type: 2}
   - {fileID: 11400000, guid: 8914039bd14b8944ea79e20f49f87429, type: 2}
+  - {fileID: 11400000, guid: 91dee3aa03b1e2f498e66ce117c422da, type: 2}
   Gang:
     CommonWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
       type: 3}
@@ -37,6 +38,7 @@ MonoBehaviour:
     LegColour: {r: 0.10017315, g: 0, b: 0.33962262, a: 1}
   SoftBlockColour: {r: 0.764151, g: 0.3135903, b: 0.3135903, a: 1}
   HardBlockColour: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+  LadderColour: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   Clutter:
   - {fileID: 4212559539517258395, guid: 17b85a64dfb85e84d887c8df82ad1d71, type: 3}
   PickUps:
@@ -48,6 +50,7 @@ MonoBehaviour:
   Liquid: {fileID: 4264662652247296128, guid: b690f02825ec9ad4980bdd935d46fa69, type: 3}
   Platform: {fileID: 1408348430435522812, guid: 9224d5d7e76215648a22462369a79764,
     type: 3}
+  Ladder: {fileID: 8405279952322528041, guid: 4fa62764beb0a254580e05a7359cabfa, type: 3}
   Sky: {fileID: 21300000, guid: 12efbd7940d24f240a4fa1175fde4ea7, type: 3}
   ParallaxObjects:
   - {fileID: 6299981044705569740, guid: 2f7a70380fd3ff948b7cbd5d5cc1205d, type: 3}

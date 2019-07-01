@@ -18,7 +18,6 @@ public class PlayerSentity : MonoBehaviour
         throwLimit = Configuration.Data.Config.GrenadeThrowMax;
         Sentity = GetComponent<Sentity>();
     }
-
    
 
     void Update()
@@ -53,18 +52,37 @@ public class PlayerSentity : MonoBehaviour
         var y = 0f;
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            y = 1f;
-            Jumping = true;
+            if (!OnLadder)
+            {
+                y = 1f;
+                Jumping = true;
+            }
         }
 
+        if (x == 0f && OnLadder)
+        {
+            Vector2 vel = GetComponent<Rigidbody2D>().velocity;
+            GetComponent<Rigidbody2D>().velocity.Set (0f, vel.y);
+        }
      
 
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
         {
+            if (!OnLadder)
+            {
+
+                Jumping = false;
+            }
+
+        }
 
 
-            Jumping = false;
-
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            if (OnLadder)
+            {
+                ClimbLadder(1);
+            }
         }
 
         Sentity.Move(new Vector2(x, y), Jumping);
@@ -128,5 +146,22 @@ public class PlayerSentity : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         Sentity.ThrowEffect.transform.localRotation = Quaternion.Slerp(Sentity.ThrowEffect.transform.localRotation, q, Time.deltaTime  * 10f);
        
+    }
+
+    void ClimbLadder(int direction)
+    {
+        transform.Translate(0.0f, direction * Time.deltaTime * 10f, 0f);
+    }
+
+    public void PutSentityOnLadder()
+    {
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
+        OnLadder = true;
+    }
+
+    public void TakeSentityOffLadder()
+    {
+        GetComponent<Rigidbody2D>().gravityScale = 1f;
+        OnLadder = false;
     }
 }
