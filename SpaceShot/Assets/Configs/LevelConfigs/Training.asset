@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf28384f2b16a8847aeee460c4a740a7, type: 3}
+  m_Name: Training
+  m_EditorClassIdentifier: 
+  Name: Training
+  LevelLength: 8
+  StartWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
+    type: 3}
+  Chunks:
+  - {fileID: 11400000, guid: ee51fa9ca728de645ae1fb5b44306164, type: 2}
+  - {fileID: 11400000, guid: 6680fbcc3bd750b4d8aee22392c89e90, type: 2}
+  - {fileID: 11400000, guid: 3fcb7143f71c6c64180b553e930a81ed, type: 2}
+  - {fileID: 11400000, guid: aded57384f1652c4484d1e4d38038c71, type: 2}
+  - {fileID: 11400000, guid: f8cfcd68ef032b84f821d8296fec4add, type: 2}
+  Gang:
+    CommonWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
+      type: 3}
+    RareWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
+      type: 3}
+    Health: 5
+    Speed: 3
+    Awareness: 3
+    Engage: 1
+    TriggerRate: 1
+    BodyColour: {r: 1, g: 0.65579164, b: 0, a: 1}
+    LegColour: {r: 1, g: 0.62933624, b: 0, a: 1}
+  SoftBlockColour: {r: 1, g: 1, b: 1, a: 1}
+  HardBlockColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  LadderColour: {r: 0, g: 0, b: 0, a: 1}
+  Clutter:
+  - {fileID: 123137748704315073, guid: ea9a887fe56d49f4680c64c054e0fe90, type: 3}
+  PickUps:
+  - {fileID: 570299033237635612, guid: e3d85a48e70a25843ad1be7b0a801922, type: 3}
+  - {fileID: 1953470136834101501, guid: 2c551e23b22ce3c438da9c07606fef3b, type: 3}
+  SoftBlock: {fileID: 8774476919938625930, guid: b33793e6d168bf447a31c6e004f27a9b,
+    type: 3}
+  HardBlock: {fileID: 3686367297490483478, guid: cb9c96be09782c64385acdbaf3129aec,
+    type: 3}
+  Liquid: {fileID: 4264662652247296128, guid: b690f02825ec9ad4980bdd935d46fa69, type: 3}
+  Platform: {fileID: 424258284984558178, guid: d5aee757f23223747aa948494f7f7773, type: 3}
+  Ladder: {fileID: 8405279952322528041, guid: 4fa62764beb0a254580e05a7359cabfa, type: 3}
+  Sky: {fileID: 21300000, guid: 9a84cfe8fd60c684fa0b957ead121f6d, type: 3}
+  ParallaxSprites:
+  - {fileID: 21300000, guid: 213aa11da5b321e429717a1c6f362db2, type: 3}
+  - {fileID: 21300000, guid: f4aee161ed914a548b4c213ee81f5787, type: 3}
