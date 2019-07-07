@@ -91,7 +91,18 @@ public class PlayerSentity : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Sentity.PickUp();
+            if (!OnLadder)
+            {
+                Sentity.PickUp();
+            } else
+            {
+                ClimbLadder(-1);
+            }
+        }
+
+        if (Input.GetAxis ("Vertical") < 0 && OnLadder)
+        {
+            ClimbLadder(-1);
         }
 
         UpdateThrowChargeDisplay();
@@ -150,7 +161,8 @@ public class PlayerSentity : MonoBehaviour
 
     void ClimbLadder(int direction)
     {
-        transform.Translate(0.0f, direction * Time.deltaTime * 10f, 0f);
+        //transform.Translate(0.0f, direction * Time.deltaTime * 10f, 0f);
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, direction * Time.deltaTime * 10f), ForceMode2D.Impulse);
     }
 
     public void PutSentityOnLadder()
