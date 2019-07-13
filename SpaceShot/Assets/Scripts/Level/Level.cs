@@ -82,7 +82,7 @@ public class Level : MonoBehaviour
 
         var bt = Instantiate(BossTrigger);
 
-        bt.transform.position = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);
+        bt.transform.position = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);  
 
     }
 
