@@ -9,6 +9,7 @@ public class GroundCollider : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
         if (!Mover.Grounds.Contains(collision))
         {
             Mover.Grounds.Add(collision);
@@ -19,6 +20,7 @@ public class GroundCollider : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+       
         if (Mover.Grounds.Contains(collision))
         {
             Mover.Grounds.Remove(collision);

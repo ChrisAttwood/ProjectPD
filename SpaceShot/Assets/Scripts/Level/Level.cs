@@ -8,6 +8,8 @@ public class Level : MonoBehaviour
     int[,] data;
     LevelConfig LevelConfig;
 
+    public BossTrigger BossTrigger;
+
     private void Awake()
     {
         if (GameFileManager.GameFile == null)
@@ -71,12 +73,17 @@ public class Level : MonoBehaviour
                 {
                     var item = Get(data[x, y]);
                     item.transform.position = new Vector2(x, y + 1);
-
+                    item.transform.parent = this.transform;
                 }
 
             }
 
         }
+
+        var bt = Instantiate(BossTrigger);
+
+        bt.transform.position = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);
+
     }
 
     GameObject Get(int data)

@@ -25,13 +25,17 @@ public class Mover : MonoBehaviour
     public List<Collider2D> Grounds;
 
 
-    void Update()
+    public void Move(float x, bool JumpPressed, bool JumpHeld)
     {
-        var x = Input.GetAxis("Horizontal");
+
+
+
+
+        //var x = Input.GetAxis("Horizontal");
         var y = Rigidbody2D.velocity.y;
         float dynamicSpeed = xWalkSpeed + ((xRunSpeed - xWalkSpeed) * ((float)AcTimer / (float)RunTime));
 
-        if (Input.GetButtonDown("Jump") && Grounds.Count>0)
+        if (JumpPressed && Grounds.Count > 0)
         {
             y = JumpVelocity;
         }
@@ -49,41 +53,40 @@ public class Mover : MonoBehaviour
         {
             if (x > 0 && RightCollisions.Count > 0)
             {
-                // Do nothing
+                x = 0;
             }
             else if (x < 0 && LeftCollisions.Count > 0)
             {
-                // Do nothing
+                x = 0;
             }
-            else
-            {
-                Rigidbody2D.velocity = new Vector2(x * xRunSpeed, y);
-            }
+
+            Rigidbody2D.velocity = new Vector2(x * xRunSpeed, y);
+
         }
         else
         {
             if (x > 0 && RightCollisions.Count > 0)
             {
-                // Do nothing
+                x = 0;
             }
             else if (x < 0 && LeftCollisions.Count > 0)
             {
-                // Do nothing
+                x = 0;
             }
-            else
-            {
-                Rigidbody2D.velocity = new Vector2(x * dynamicSpeed, y);
-            }
+
+            Rigidbody2D.velocity = new Vector2(x * dynamicSpeed, y);
+
         }
 
         if (Rigidbody2D.velocity.y < 0)
         {
             Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (FallMultipler - 1) * Time.deltaTime;
-        } else if (Rigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        }
+        else if (Rigidbody2D.velocity.y > 0 && !JumpHeld)
         {
             Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
         }
-    }
 
+    }
   
 }

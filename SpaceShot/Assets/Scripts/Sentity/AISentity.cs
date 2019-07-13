@@ -41,6 +41,9 @@ public class AISentity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Sentity.IsDead) return;
+
         float distance = Vector2.Distance(transform.position, Player.transform.position);
 
         if (distance < Awareness)
@@ -98,7 +101,7 @@ public class AISentity : MonoBehaviour
         jumpTimer -= Time.deltaTime;
         Vector2 playerPos = Player.transform.position;
         Vector2 entityPosition = this.transform.position;
-        int dir = 0;
+        float dir = 0;
         if (playerPos.x > entityPosition.x)
         {
             dir = 1;
@@ -107,16 +110,16 @@ public class AISentity : MonoBehaviour
             dir = -1;
         }
         bool jump = false;
-        float jumpPower = 0;
+       // float jumpPower = 0;
         if (jumpTimer < 0)
         {
             jump = true;
-            jumpPower = 1f;
+            // jumpPower = 1f;
             if (jumpTimer < -1)
             {
                 jumpTimer = Random.Range(3f, 10f);
             }
         }
-        Sentity.Move(new Vector2(dir, jumpPower), jump);
+        Sentity.Mover.Move(dir, jump,false);
     }
 }

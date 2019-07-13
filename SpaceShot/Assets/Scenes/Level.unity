@@ -886,6 +886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7844c5386864b42afd95f1b6eb37d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossTrigger: {fileID: 8921907899992355746, guid: 9af36208bf34ef240b82a437f5a0cf4f,
+    type: 3}
 --- !u!4 &517482827
 Transform:
   m_ObjectHideFlags: 0

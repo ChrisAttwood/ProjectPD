@@ -8,7 +8,7 @@ public class PlayerSentity : MonoBehaviour
  
 
 
-    bool Jumping = false;
+ //   bool Jumping = false;
     float throwCharge = 0f;
     float throwLimit;
     bool OnLadder = false;
@@ -22,6 +22,9 @@ public class PlayerSentity : MonoBehaviour
 
     void Update()
     {
+
+        if (Sentity.IsDead) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Sentity.TriggerWeapon();
@@ -49,61 +52,61 @@ public class PlayerSentity : MonoBehaviour
         }
 
         var x = Input.GetAxis("Horizontal");
-        var y = 0f;
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (!OnLadder)
-            {
-                y = 1f;
-                Jumping = true;
-            }
-        }
+        //var y = 0f;
+        //if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        //{
+        //    if (!OnLadder)
+        //    {
+        //        y = 1f;
+        //        Jumping = true;
+        //    }
+        //}
 
-        if (x == 0f && OnLadder)
-        {
-            Vector2 vel = GetComponent<Rigidbody2D>().velocity;
-            GetComponent<Rigidbody2D>().velocity.Set (0f, vel.y);
-        }
+        //if (x == 0f && OnLadder)
+        //{
+        //    Vector2 vel = GetComponent<Rigidbody2D>().velocity;
+        //    GetComponent<Rigidbody2D>().velocity.Set (0f, vel.y);
+        //}
      
 
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
-        {
-            if (!OnLadder)
-            {
+        //if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+        //{
+        //    if (!OnLadder)
+        //    {
 
-                Jumping = false;
-            }
+        //        Jumping = false;
+        //    }
 
-        }
-
-
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            if (OnLadder)
-            {
-                ClimbLadder(1);
-            }
-        }
-
-        Sentity.Move(new Vector2(x, y), Jumping);
+        //}
 
 
+        //if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    if (OnLadder)
+        //    {
+        //        ClimbLadder(1);
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (!OnLadder)
-            {
-                Sentity.PickUp();
-            } else
-            {
-                ClimbLadder(-1);
-            }
-        }
+        Sentity.Mover.Move(x, Input.GetButtonDown("Jump"), Input.GetButton("Jump"));
 
-        if (Input.GetAxis ("Vertical") < 0 && OnLadder)
-        {
-            ClimbLadder(-1);
-        }
+
+
+        //if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+        //    if (!OnLadder)
+        //    {
+        //        Sentity.PickUp();
+        //    } else
+        //    {
+        //        ClimbLadder(-1);
+        //    }
+        //}
+
+        //if (Input.GetAxis ("Vertical") < 0 && OnLadder)
+        //{
+        //    ClimbLadder(-1);
+        //}
 
         UpdateThrowChargeDisplay();
 

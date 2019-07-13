@@ -40,14 +40,14 @@ public class Sentity : MonoBehaviour, ITakeDamage
     public Vector2? PunchLeft;
     public Vector2? PunchRight;
 
-    public bool IsGrounded { get; set; }
+    //public bool IsGrounded { get; set; }
 
     public bool IsDead;
 
 
     public int Grenades = 5;
 
-    public float Speed;
+   // public float Speed;
     public int Health { get; set; }
     public int Armour { get; set; }
 
@@ -58,12 +58,15 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     public bool scoreLogged = false;
 
+    public Mover Mover;
+
+
     public void Create(Gang sd)
     {
       
 
 
-        Speed = 1f + (sd.Speed * 0.1f);
+      //  Speed = 1f + (sd.Speed * 0.1f);
         Health = sd.Health;
         IsPlayer = false;
         BodySprite.color = sd.BodyColour;
@@ -94,7 +97,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
         var player = gameObject.AddComponent<PlayerSentity>();
         GameObject.Find("Target").GetComponent<Target>().Sentity = this;
         Camera.main.GetComponent<SmoothCamera2D>().target = this.transform;
-        Speed = Configuration.Data.Config.PlayerSpeed;
+     //   Speed = Configuration.Data.Config.PlayerSpeed;
         Health = Configuration.Data.Config.PlayerHealth;
         Equipment = Instantiate(equipment);
     }
@@ -292,7 +295,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     void CheckWin()
     {
-        if (transform.position.x > Configuration.Data.CurrentLevel().LevelLength * 8 + 5 && !scoreLogged)
+        if (transform.position.x > Configuration.Data.CurrentLevel().LevelLength * 8 + 48 && !scoreLogged)
         {
             LevelTimer.instance.win = true;
             Scoreboard.scoreboard.IncreaseScore(100,transform.position);
@@ -457,66 +460,66 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     bool LeapTriggered = false;
 
-    public void Move(Vector2 vector2,bool Jumping)
-    {
-        if (IsDead) return;
+    //public void Move(Vector2 vector2,bool Jumping)
+    //{
+    //    if (IsDead) return;
 
 
-        var v2 = vector2;
-        if (Mathf.Abs(v2.x) ==0f && Mathf.Abs(Rigidbody2D.velocity.y) == 0f)
-        {
-            var vel = Rigidbody2D.velocity;
-            vel.x = 0f;
-            Rigidbody2D.velocity = vel;
-        }
-        if (Mathf.Abs(Rigidbody2D.velocity.x) > Speed)
-        {
-             v2.x = 0f;
+    //    var v2 = vector2;
+    //    if (Mathf.Abs(v2.x) ==0f && Mathf.Abs(Rigidbody2D.velocity.y) == 0f)
+    //    {
+    //        var vel = Rigidbody2D.velocity;
+    //        vel.x = 0f;
+    //        Rigidbody2D.velocity = vel;
+    //    }
+    //    if (Mathf.Abs(Rigidbody2D.velocity.x) > Speed)
+    //    {
+    //         v2.x = 0f;
            
-        }
-        if (Mathf.Abs(Rigidbody2D.velocity.y) > Speed)
-        {
-            v2.y = 0f;
-        }
-        if (Grounds.Count>0)
-        {
-            if (v2.y > 0f)
-            {
-                v2.y = Configuration.Data.Config.JumpBoost;
-            }
-            Rigidbody2D.AddForce(v2 * Configuration.Data.Config.JumpPower);
-            IsGrounded = false;
-        }
-        else
-        {
+    //    }
+    //    if (Mathf.Abs(Rigidbody2D.velocity.y) > Speed)
+    //    {
+    //        v2.y = 0f;
+    //    }
+    //    if (Grounds.Count>0)
+    //    {
+    //        if (v2.y > 0f)
+    //        {
+    //            v2.y = Configuration.Data.Config.JumpBoost;
+    //        }
+    //        Rigidbody2D.AddForce(v2 * Configuration.Data.Config.JumpPower);
+    //        IsGrounded = false;
+    //    }
+    //    else
+    //    {
 
-            if (Rigidbody2D.velocity.y < 0)
-            {
-                v2.y = -0.5f;
-            }
-            else if (!Jumping)
-            {
-                v2.y = -0.5f;
-            }
-            else
-            {
-                if (vector2.y > 0f && Jumping && !LeapTriggered && Grounds.Count ==0)
-                {
-                    LeapTriggered = true;
-                    v2.y = Configuration.Data.Config.DoubleJumpBoost;
-                }
-            }
-            Rigidbody2D.AddForce(v2 * Configuration.Data.Config.AntiJumpPower);
-        }
-        if (Jumping)
-        {
-            Grounds = new List<Collider2D>();
-        }
+    //        if (Rigidbody2D.velocity.y < 0)
+    //        {
+    //            v2.y = -0.5f;
+    //        }
+    //        else if (!Jumping)
+    //        {
+    //            v2.y = -0.5f;
+    //        }
+    //        else
+    //        {
+    //            if (vector2.y > 0f && Jumping && !LeapTriggered && Grounds.Count ==0)
+    //            {
+    //                LeapTriggered = true;
+    //                v2.y = Configuration.Data.Config.DoubleJumpBoost;
+    //            }
+    //        }
+    //        Rigidbody2D.AddForce(v2 * Configuration.Data.Config.AntiJumpPower);
+    //    }
+    //    if (Jumping)
+    //    {
+    //        Grounds = new List<Collider2D>();
+    //    }
 
         
       
 
-    }
+    //}
 
     
 
@@ -526,16 +529,16 @@ public class Sentity : MonoBehaviour, ITakeDamage
         //Also helps handling
 
         float maxTotal = Configuration.Data.Config.MaxTotalVelocity;
-        float maxHorizontal = Configuration.Data.Config.MaxHorizontalVelocity;
+        //float maxHorizontal = Configuration.Data.Config.MaxHorizontalVelocity;
 
-        if (Mathf.Abs(Rigidbody2D.velocity.x) > maxHorizontal)
-        {
-            Vector2 v = Rigidbody2D.velocity;
-            v.Normalize();
-            Vector2 v2 = Rigidbody2D.velocity;
-            v2.x = v.x * maxHorizontal;
-            Rigidbody2D.velocity = v2;
-        }
+        //if (Mathf.Abs(Rigidbody2D.velocity.x) > maxHorizontal)
+        //{
+        //    Vector2 v = Rigidbody2D.velocity;
+        //    v.Normalize();
+        //    Vector2 v2 = Rigidbody2D.velocity;
+        //    v2.x = v.x * maxHorizontal;
+        //    Rigidbody2D.velocity = v2;
+        //}
 
 
         if (Rigidbody2D.velocity.magnitude > maxTotal)
@@ -554,7 +557,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
 
 
-        if (Grounds.Count > 0 && speed>0f)
+        if (Mover.Grounds.Count > 0 && speed>0f)
         {
 
             float s = Mathf.Sin(Time.time * 20f) / 20f;
@@ -564,7 +567,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
             
            
            
-        }else if (Grounds.Count == 0)
+        }else if (Mover.Grounds.Count == 0)
         {
             SoulFootLeft.transform.localPosition = new Vector2(-0.15f, -0.37f);
             SoulFootRight.transform.localPosition = new Vector2(0.15f, -0.27f);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2640938650972482556}
   - component: {fileID: 239581708247610110}
   - component: {fileID: 4686897306940942354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IronBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
