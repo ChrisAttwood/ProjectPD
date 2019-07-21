@@ -90,7 +90,10 @@ public class PlayerSentity : MonoBehaviour
 
         Sentity.Mover.Move(x, Input.GetButtonDown("Jump"), Input.GetButton("Jump"));
 
-
+        //if (OnLadder)
+        //{
+        //    ClimbLadder(Input.GetAxis("Vertical"));
+        //}
 
         //if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         //{
@@ -162,21 +165,22 @@ public class PlayerSentity : MonoBehaviour
        
     }
 
-    void ClimbLadder(int direction)
-    {
-        //transform.Translate(0.0f, direction * Time.deltaTime * 10f, 0f);
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, direction * Time.deltaTime * 10f), ForceMode2D.Impulse);
-    }
+    //void ClimbLadder(float direction)
+    //{
+    //    //transform.Translate(0.0f, direction * Time.deltaTime * 10f, 0f);
+    //    //GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, direction * Time.deltaTime * 10f), ForceMode2D.Impulse);
+    //    Rigidbody2D.AddForce(new Vector2(0f, direction * Time.deltaTime * 10f));
+    //}
 
-    public void PutSentityOnLadder()
-    {
-        GetComponent<Rigidbody2D>().gravityScale = 0f;
-        OnLadder = true;
-    }
+    //public void PutSentityOnLadder()
+    //{
+    //    GetComponent<Rigidbody2D>().gravityScale = 0f;
+    //    OnLadder = true;
+    //}
 
-    public void TakeSentityOffLadder()
-    {
-        GetComponent<Rigidbody2D>().gravityScale = 1f;
-        OnLadder = false;
-    }
+    //public void TakeSentityOffLadder()
+    //{
+    //    GetComponent<Rigidbody2D>().gravityScale = 1f;
+    //    OnLadder = false;
+    //}
 }

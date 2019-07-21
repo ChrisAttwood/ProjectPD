@@ -14,8 +14,6 @@ public class Mover : MonoBehaviour
     public Collider2D LeftSide;
     public Collider2D RightSide;
 
-
-
     public float JumpVelocity = 7f;
     public float FallMultipler = 2.5f;
     public float LowJumpMultiplier = 2f;
@@ -23,6 +21,9 @@ public class Mover : MonoBehaviour
     public List<Collider2D> RightCollisions;
     public List<Collider2D> LeftCollisions;
     public List<Collider2D> Grounds;
+
+    public bool OnLadder = false;
+    public float LadderSpeed = 5f;
 
 
     public void Move(float x, bool JumpPressed, bool JumpHeld)
@@ -38,6 +39,11 @@ public class Mover : MonoBehaviour
         if (JumpPressed && Grounds.Count > 0)
         {
             y = JumpVelocity;
+        }
+
+        else if (OnLadder)
+        {
+            y = Input.GetAxis("Vertical") * LadderSpeed;
         }
 
         if (x == 0)
@@ -87,6 +93,28 @@ public class Mover : MonoBehaviour
             Rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (LowJumpMultiplier - 1) * Time.deltaTime;
         }
 
+
+
+        //void ClimbLadder(float direction)
+        //{
+        //    //transform.Translate(0.0f, direction * Time.deltaTime * 10f, 0f);
+        //    //GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, direction * Time.deltaTime * 10f), ForceMode2D.Impulse);
+        //    Rigidbody2D.AddForce(new Vector2(0f, direction * Time.deltaTime * 100f));
+        //}
+
     }
-  
+
+    public void PutSentityOnLadder(float ThisLadderSpeed)
+    {
+        GetComponent<Rigidbody2D>().gravityScale = 0f;
+        LadderSpeed = ThisLadderSpeed;
+        OnLadder = true;
+    }
+
+    public void TakeSentityOffLadder()
+    {
+        GetComponent<Rigidbody2D>().gravityScale = 1f;
+        OnLadder = false;
+    }
+
 }

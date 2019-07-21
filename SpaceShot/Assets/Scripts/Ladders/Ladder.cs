@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
+    public float LadderSpeed = 5f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        PlayerSentity playerSentity = collision.GetComponent<PlayerSentity>();
-        if (playerSentity != null)
-        {
-            playerSentity.PutSentityOnLadder();
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Mover mover = collision.GetComponent<Mover>();
+    //    if (mover != null)
+    //    {
+    //        mover.PutSentityOnLadder();
+    //    }
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        PlayerSentity playerSentity = collision.GetComponent<PlayerSentity>();
-        if (playerSentity != null)
+        Mover mover = collision.GetComponent<Mover>();
+        if (mover != null)
         {
-            playerSentity.GetComponent<Rigidbody2D>().velocity.Set(0f, 0f);
-            Debug.Log(playerSentity.GetComponent<Rigidbody2D>().velocity);
+            mover.PutSentityOnLadder(LadderSpeed);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        PlayerSentity playerSentity = collision.GetComponent<PlayerSentity>();
-        if (playerSentity != null)
+        Mover mover = collision.GetComponent<Mover>();
+        if (mover != null)
         {
-            playerSentity.TakeSentityOffLadder();
+            mover.TakeSentityOffLadder();
         }
     }
 }
