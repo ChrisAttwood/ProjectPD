@@ -295,7 +295,7 @@ public class Sentity : MonoBehaviour, ITakeDamage
 
     void CheckWin()
     {
-        if (transform.position.x > Configuration.Data.CurrentLevel().LevelLength * 8 + 48 && !scoreLogged)
+        if (Configuration.Data.CurrentLevel().Boss == null &&  transform.position.x > Configuration.Data.CurrentLevel().LevelLength * 8 + 16 && !scoreLogged)
         {
             LevelTimer.instance.win = true;
             Scoreboard.scoreboard.IncreaseScore(100,transform.position);

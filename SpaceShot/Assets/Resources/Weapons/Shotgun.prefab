@@ -143,7 +143,7 @@ MonoBehaviour:
     SoundEffect: {fileID: 8300000, guid: c03c7af54c366ff459a808eac22dab54, type: 3}
     Mass: 1
     Gravity: 0.1
-    Blast: 0.5
+    Blast: 0.2
     Damage: 5
     DamageAll: 0
   Projectile: {fileID: 1083188735432687101, guid: fbaeb0759d11c8d40a0b4978a1985bd2,

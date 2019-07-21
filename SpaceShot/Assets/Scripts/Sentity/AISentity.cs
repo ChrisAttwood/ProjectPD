@@ -17,8 +17,11 @@ public class AISentity : MonoBehaviour
 
     Sentity Sentity;
 
+   
+
     private void Awake()
     {
+       
         Sentity = GetComponent<Sentity>();
     }
 
@@ -102,13 +105,18 @@ public class AISentity : MonoBehaviour
         Vector2 playerPos = Player.transform.position;
         Vector2 entityPosition = this.transform.position;
         float dir = 0;
+        
         if (playerPos.x > entityPosition.x)
         {
             dir = 1;
-        } else
+        }
+        else
         {
             dir = -1;
         }
+        
+
+       
         bool jump = false;
        // float jumpPower = 0;
         if (jumpTimer < 0)
@@ -120,6 +128,9 @@ public class AISentity : MonoBehaviour
                 jumpTimer = Random.Range(3f, 10f);
             }
         }
+
+       
+
         Sentity.Mover.Move(dir, jump,false);
     }
 }

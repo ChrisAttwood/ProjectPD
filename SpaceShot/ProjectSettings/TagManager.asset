@@ -17,8 +17,8 @@ TagManager:
   - Projectile
   - Blocks
   - TheSideColliders
-  - 
-  - 
+  - BossTrigger
+  - PlayerSoul
   - 
   - 
   - 

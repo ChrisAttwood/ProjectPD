@@ -9,8 +9,6 @@ public class Configuration : MonoBehaviour
     [Header("Testing")]
     public int StartLevel = 0;
 
-    [Header("Mode")]
-    public bool PixelDestructible = false;
 
     [Header("Sentity")]
     public Sentity SentityPrefab;
