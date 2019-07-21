@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf28384f2b16a8847aeee460c4a740a7, type: 3}
   m_Name: Training
   m_EditorClassIdentifier: 
-  Name: Training
+  Name: Training Day
   LevelLength: 8
   StartWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
     type: 3}
   Chunks:
-  - {fileID: 11400000, guid: ee51fa9ca728de645ae1fb5b44306164, type: 2}
-  - {fileID: 11400000, guid: 6680fbcc3bd750b4d8aee22392c89e90, type: 2}
-  - {fileID: 11400000, guid: 3fcb7143f71c6c64180b553e930a81ed, type: 2}
-  - {fileID: 11400000, guid: aded57384f1652c4484d1e4d38038c71, type: 2}
-  - {fileID: 11400000, guid: f8cfcd68ef032b84f821d8296fec4add, type: 2}
+  - {fileID: 11400000, guid: 7a2ab3f0467014c42a03ecb4fdcb0548, type: 2}
+  - {fileID: 11400000, guid: 93f019feddcc4474f8281a67bdfdee32, type: 2}
+  - {fileID: 11400000, guid: 3fbf766b97f5eed4e817fcb8bd9f370b, type: 2}
+  - {fileID: 11400000, guid: 8774b132d5a603546934fdbeef1d10ff, type: 2}
+  - {fileID: 11400000, guid: 589e5f60610529244831d9c944f2b2d0, type: 2}
+  - {fileID: 11400000, guid: 0180dc20365bed5499bc84a97fe01079, type: 2}
+  - {fileID: 11400000, guid: f5e62da6301165a499343d8ed1efc579, type: 2}
   Gang:
     CommonWeapon: {fileID: 2816115742526612210, guid: 06ad3ca4fba04b049ac65d7a6a26445b,
       type: 3}
@@ -34,8 +36,10 @@ MonoBehaviour:
     TriggerRate: 1
     BodyColour: {r: 1, g: 0.65579164, b: 0, a: 1}
     LegColour: {r: 1, g: 0.62933624, b: 0, a: 1}
-  SoftBlockColour: {r: 1, g: 1, b: 1, a: 1}
-  HardBlockColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  Boss: {fileID: 3065762548706237598, guid: a8b08aa72c92b0c4e875da538932e0dc, type: 3}
+  BossLocalPosition: {x: 0, y: 2.5}
+  SoftBlockColour: {r: 0.5, g: 0.3, b: 0, a: 1}
+  HardBlockColour: {r: 0.5, g: 0.8, b: 0.5, a: 1}
   LadderColour: {r: 0, g: 0, b: 0, a: 1}
   Clutter:
   - {fileID: 123137748704315073, guid: ea9a887fe56d49f4680c64c054e0fe90, type: 3}
@@ -53,3 +57,5 @@ MonoBehaviour:
   ParallaxSprites:
   - {fileID: 21300000, guid: 213aa11da5b321e429717a1c6f362db2, type: 3}
   - {fileID: 21300000, guid: f4aee161ed914a548b4c213ee81f5787, type: 3}
+  - {fileID: 21300000, guid: cc28dabad07d3bb499d514a4b2c34856, type: 3}
+  - {fileID: 21300000, guid: 6a23139536d4c2444ac84c119e6d8f62, type: 3}

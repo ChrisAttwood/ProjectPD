@@ -14,6 +14,8 @@ public class LevelConfig : ScriptableObject
     public Chunk[] Chunks;
     [Header("Enemy Data")]
     public Gang Gang;
+    public Boss Boss;
+    public Vector2 BossLocalPosition;
 
     [Header("Colours")]
     public Color SoftBlockColour = Color.white;
@@ -32,6 +34,7 @@ public class LevelConfig : ScriptableObject
     [Header("Background")]
     public Sprite Sky;
     public Sprite[] ParallaxSprites;
+
 
 
 

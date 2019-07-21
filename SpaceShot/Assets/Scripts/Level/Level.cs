@@ -9,7 +9,7 @@ public class Level : MonoBehaviour
     LevelConfig LevelConfig;
 
     public BossTrigger BossTrigger;
-
+    public GameObject PlayerSoul;
     private void Awake()
     {
         if (GameFileManager.GameFile == null)
@@ -28,6 +28,10 @@ public class Level : MonoBehaviour
         var player = Instantiate(Configuration.Data.SentityPrefab);
         player.transform.position = new Vector2(-5f, 5f);
         player.CreatePlayer(LevelConfig.StartWeapon);
+        var ps = Instantiate(PlayerSoul);
+        ps.transform.parent = player.transform;
+        ps.transform.localPosition = Vector2.zero;
+
     }
 
 
@@ -80,9 +84,18 @@ public class Level : MonoBehaviour
 
         }
 
-        var bt = Instantiate(BossTrigger);
+        if (LevelConfig.Boss != null)
+        {
+            var bt = Instantiate(BossTrigger);
 
-        bt.transform.position = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);  
+            bt.transform.position = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);
+
+            var boss = Instantiate(LevelConfig.Boss);
+            boss.transform.position = (Vector2)bt.transform.position + LevelConfig.BossLocalPosition;
+            bt.Boss = boss;
+        }
+
+     
 
     }
 
@@ -134,5 +147,34 @@ public class Level : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void Complete()
+    {
+        LevelTimer.instance.win = true;
+        Scoreboard.scoreboard.IncreaseScore(100, transform.position);
+        Scoreboard.scoreboard.LogScore();
+        UIManager.instance.LevelComplete();
+        RunScore.instance.Display();
+        Invoke("NextLevel", 3f);
+    }
+
+    void NextLevel()
+    {
+        GameFileManager.GameFile.CurrentLevel++;
+
+
+        GameFileManager.Save();
+
+        if (GameFileManager.GameFile.CurrentLevel >= Configuration.Data.Levels.Length)
+        {
+            SceneManager.LoadScene("Complete");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level");
+        }
+
+
     }
 }

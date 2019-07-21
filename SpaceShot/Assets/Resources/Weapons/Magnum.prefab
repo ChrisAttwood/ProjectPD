@@ -196,16 +196,16 @@ MonoBehaviour:
   Burst: 1
   Rate: 0.1
   Power: 1
+  Scatter: 0
   Ammo:
     Sprite: {fileID: 21300000, guid: 6048da4d8edaf614ca4b3faee5eea6a7, type: 3}
     Color: {r: 1, g: 1, b: 0, a: 1}
     SoundEffect: {fileID: 8300000, guid: b8fde839d8559bc4a962ff5feaab226a, type: 3}
     Mass: 1
     Gravity: 0.1
-    Blast: 0.4
+    Blast: 0.1
     Damage: 5
     DamageAll: 0
-  Scatter: 0
   Projectile: {fileID: 1083188735432687101, guid: fbaeb0759d11c8d40a0b4978a1985bd2,
     type: 3}
 --- !u!61 &7308450958916843387
