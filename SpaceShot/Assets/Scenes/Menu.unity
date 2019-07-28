@@ -1285,7 +1285,7 @@ PrefabInstance:
     - target: {fileID: 1431225743081836681, guid: 60db3b73d4a33cf4e82ca6ae752192d7,
         type: 3}
       propertyPath: Levels.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1431225743081836681, guid: 60db3b73d4a33cf4e82ca6ae752192d7,
         type: 3}
@@ -1302,7 +1302,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Levels.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: f15bc24ef79762345bb655627425316b,
+      objectReference: {fileID: 11400000, guid: 62bdff436912508448862dcb94fb99f4,
         type: 2}
     - target: {fileID: 1431225743081836681, guid: 60db3b73d4a33cf4e82ca6ae752192d7,
         type: 3}
@@ -1313,7 +1313,13 @@ PrefabInstance:
         type: 3}
       propertyPath: Levels.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 62bdff436912508448862dcb94fb99f4,
+      objectReference: {fileID: 11400000, guid: edc41d5138f121d47a31f151d36d4496,
+        type: 2}
+    - target: {fileID: 1431225743081836681, guid: 60db3b73d4a33cf4e82ca6ae752192d7,
+        type: 3}
+      propertyPath: Levels.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f15bc24ef79762345bb655627425316b,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60db3b73d4a33cf4e82ca6ae752192d7, type: 3}

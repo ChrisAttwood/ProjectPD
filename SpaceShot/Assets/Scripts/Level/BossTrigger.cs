@@ -11,10 +11,16 @@ public class BossTrigger : MonoBehaviour
 
     public Boss Boss;
 
+    public BossArea BossArea;
+
     private void Start()
     {
         BlockerLeft.transform.localPosition = new Vector2(-17, 18);
         BlockerRight.transform.localPosition = new Vector2(17, 18);
+        if (BossArea != null)
+        {
+            BossArea.BuildBossArea();
+        }
     }
 
 

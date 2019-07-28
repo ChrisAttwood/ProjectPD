@@ -16,6 +16,7 @@ public class LevelConfig : ScriptableObject
     public Gang Gang;
     public Boss Boss;
     public Vector2 BossLocalPosition;
+    public BossArea BossArea;
 
     [Header("Colours")]
     public Color SoftBlockColour = Color.white;
