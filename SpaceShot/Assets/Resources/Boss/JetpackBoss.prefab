@@ -570,6 +570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4201197765886014583}
   - component: {fileID: 6082504643354112705}
+  - component: {fileID: 6043910574132159144}
   m_Layer: 0
   m_Name: JetpackBoss
   m_TagString: Untagged
@@ -605,6 +606,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAwake: 0
+--- !u!114 &6043910574132159144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4201197765886014576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01e90606b0f3cc48b0b91373629bc87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 6082504643354112705}
+  availablePaths:
+  - path:
+    - {x: 47, y: 2.5}
+    - {x: 47, y: 3}
+    - {x: 47, y: 4}
+    - {x: 47, y: 5}
+    - {x: 47, y: 6}
+    - {x: 47, y: 7}
+    - {x: 47, y: 8}
+    - {x: 47, y: 9}
+    - {x: 47, y: 10}
+    - {x: 47, y: 11}
+  - path:
+    - {x: 47, y: 11}
+    - {x: 47, y: 10}
+    - {x: 47, y: 9}
+    - {x: 47, y: 8}
+    - {x: 47, y: 7}
+    - {x: 47, y: 6}
+    - {x: 47, y: 5}
+    - {x: 47, y: 4}
+    - {x: 47, y: 3}
+    - {x: 47, y: 2.5}
+  RigidBody2D: {fileID: 0}
+  Speed: 1
 --- !u!1 &4201197765943805653
 GameObject:
   m_ObjectHideFlags: 0
