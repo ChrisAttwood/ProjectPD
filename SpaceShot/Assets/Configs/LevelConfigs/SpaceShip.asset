@@ -50,4 +50,4 @@ MonoBehaviour:
   Ladder: {fileID: 8405279952322528041, guid: 4fa62764beb0a254580e05a7359cabfa, type: 3}
   Sky: {fileID: 21300000, guid: 0518847420f2bc945ab3884d435a80af, type: 3}
   ParallaxSprites:
-  - {fileID: 21300000, guid: 0518847420f2bc945ab3884d435a80af, type: 3}
+  - {fileID: 21300000, guid: ca9d87cb553e5f4499867f0f56dce578, type: 3}

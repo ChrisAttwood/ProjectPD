@@ -36,7 +36,6 @@ public class JetpackBoss : MonoBehaviour
 
     private void ChooseNewPath()
     {
-        Debug.Log("Choose New Path");
         int roll = Random.Range(0, availablePaths.Count);
         movementPath = availablePaths[roll];
         endPoint = movementPath.path[movementPath.path.Count - 1];
@@ -46,20 +45,17 @@ public class JetpackBoss : MonoBehaviour
     private bool PathEndReached()
     {
         bool end = ((Vector2) transform.position == endPoint);
-        Debug.Log("Path end check = " + end);
         return end;
     }
 
     private bool NextNodeReached()
     {
         bool reached = ((Vector2)transform.position == movementPath.path[currentPathNode]);
-        Debug.Log("Node reached check = " + reached);
         return reached;
     }
 
     private void FollowPath()
     {
-        Debug.Log("Moving");
         transform.position = Vector2.MoveTowards(transform.position, movementPath.path[currentPathNode], (Speed * Time.deltaTime));
 
     }

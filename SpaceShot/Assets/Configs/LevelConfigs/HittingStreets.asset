@@ -36,6 +36,9 @@ MonoBehaviour:
     TriggerRate: 1
     BodyColour: {r: 0.030081892, g: 0.21312764, b: 0.49056602, a: 1}
     LegColour: {r: 0.10017315, g: 0, b: 0.33962262, a: 1}
+  Boss: {fileID: 0}
+  BossLocalPosition: {x: 0, y: 0}
+  BossArea: {fileID: 0}
   SoftBlockColour: {r: 0.764151, g: 0.3135903, b: 0.3135903, a: 1}
   HardBlockColour: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   LadderColour: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
@@ -51,6 +54,6 @@ MonoBehaviour:
   Platform: {fileID: 1408348430435522812, guid: 9224d5d7e76215648a22462369a79764,
     type: 3}
   Ladder: {fileID: 8405279952322528041, guid: 4fa62764beb0a254580e05a7359cabfa, type: 3}
-  Sky: {fileID: 21300000, guid: 12efbd7940d24f240a4fa1175fde4ea7, type: 3}
+  Sky: {fileID: 21300000, guid: 124630a3e72ec944f8a9538406b29104, type: 3}
   ParallaxSprites:
-  - {fileID: 21300000, guid: 795d3ac9014f865428a6c00508e59a2c, type: 3}
+  - {fileID: 21300000, guid: 12efbd7940d24f240a4fa1175fde4ea7, type: 3}
