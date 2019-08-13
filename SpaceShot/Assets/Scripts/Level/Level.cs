@@ -93,8 +93,13 @@ public class Level : MonoBehaviour
             var boss = Instantiate(LevelConfig.Boss);
             boss.transform.position = (Vector2)bt.transform.position + LevelConfig.BossLocalPosition;
             bt.Boss = boss;
-            bt.BossArea = LevelConfig.BossArea;
-            bt.BossArea.levelBossArea = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);
+            if (LevelConfig.BossArea != null)
+            {
+                bt.BossArea = LevelConfig.BossArea;
+                bt.BossArea.levelBossArea = new Vector2(LevelConfig.LevelLength * 8 + 24, 0f);
+            }
+
+           
         }
 
      
