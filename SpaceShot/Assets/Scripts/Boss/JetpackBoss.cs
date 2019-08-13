@@ -11,6 +11,7 @@ public class JetpackBoss : MonoBehaviour
     private MovementPath movementPath;
     private int currentPathNode = 0;
     private Vector2 endPoint;
+    public Equipment weapon;
 
     private void Update()
     {
@@ -40,6 +41,7 @@ public class JetpackBoss : MonoBehaviour
         movementPath = availablePaths[roll];
         endPoint = movementPath.path[movementPath.path.Count - 1];
         currentPathNode = 0;
+        weapon.Fire();
     }
 
     private bool PathEndReached()

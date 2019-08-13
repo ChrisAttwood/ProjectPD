@@ -87,7 +87,7 @@ public class Equipment : MonoBehaviour
        
     }
 
-    void Fire()
+    public void Fire()
     {
         var projectile = ProjectilePool.instance.Get();
         projectile.Create(Ammo, playerShot);
