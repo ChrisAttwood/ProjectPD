@@ -5,6 +5,7 @@ using UnityEngine;
 public class JetpackBoss : MonoBehaviour
 {
     public Boss Boss;
+    public BossHealth bossHealth;
     public List<MovementPath> availablePaths;
     public Rigidbody2D RigidBody2D;
     public float Speed;
@@ -15,22 +16,31 @@ public class JetpackBoss : MonoBehaviour
 
     private void Update()
     {
-        if (movementPath == null)
+        if (bossHealth.dead)
         {
-            ChooseNewPath();
+
         }
         else
         {
-            if (PathEndReached())
+            if (movementPath == null)
             {
                 ChooseNewPath();
-            } else
+            }
+            else
             {
-                if (NextNodeReached())
+                if (PathEndReached())
                 {
-                    currentPathNode++;
+                    ChooseNewPath();
                 }
-                FollowPath();
+                else
+                {
+                    if (NextNodeReached())
+                    {
+                        weapon.Fire();
+                        currentPathNode++;
+                    }
+                    FollowPath();
+                }
             }
         }
     }
@@ -41,7 +51,7 @@ public class JetpackBoss : MonoBehaviour
         movementPath = availablePaths[roll];
         endPoint = movementPath.path[movementPath.path.Count - 1];
         currentPathNode = 0;
-        weapon.Fire();
+        //weapon.Fire();
     }
 
     private bool PathEndReached()
@@ -60,5 +70,10 @@ public class JetpackBoss : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, movementPath.path[currentPathNode], (Speed * Time.deltaTime));
 
+    }
+
+    private void Death()
+    {
+        RigidBody2D.gravityScale = 1f;
     }
 }

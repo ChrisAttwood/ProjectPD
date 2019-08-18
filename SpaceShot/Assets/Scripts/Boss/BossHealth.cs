@@ -8,6 +8,7 @@ public class BossHealth : MonoBehaviour, ITakeDamage
     public Boss Boss;
     public int CurrentHealth = 100;
     public int MaxHealth = 100;
+    public bool dead;
 
     public void TakeDamage(Vector2 source, float radius, int amount)
     {
@@ -21,6 +22,7 @@ public class BossHealth : MonoBehaviour, ITakeDamage
         if (CurrentHealth < 1)
         {
             Boss.Complete();
+            dead = true;
         }
     }
 }

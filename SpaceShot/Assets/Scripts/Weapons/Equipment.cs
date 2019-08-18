@@ -29,7 +29,7 @@ public class Equipment : MonoBehaviour
    
     public Projectile Projectile;
 
-    bool Flipped = false;
+    public bool Flipped = false;
 
     private void Awake()
     {
