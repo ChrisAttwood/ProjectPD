@@ -626,25 +626,15 @@ MonoBehaviour:
   - path:
     - {x: 47, y: 2.5}
     - {x: 47, y: 3}
+    - {x: 47, y: 3.5}
     - {x: 47, y: 4}
-    - {x: 47, y: 5}
-    - {x: 47, y: 6}
-    - {x: 47, y: 7}
-    - {x: 47, y: 8}
-    - {x: 47, y: 9}
-    - {x: 47, y: 10}
-    - {x: 47, y: 11}
+    - {x: 47, y: 4.5}
   - path:
-    - {x: 47, y: 11}
-    - {x: 47, y: 10}
-    - {x: 47, y: 9}
-    - {x: 47, y: 8}
-    - {x: 47, y: 7}
-    - {x: 47, y: 6}
     - {x: 47, y: 5}
+    - {x: 47, y: 4.5}
     - {x: 47, y: 4}
+    - {x: 47, y: 3.5}
     - {x: 47, y: 3}
-    - {x: 47, y: 2.5}
   RigidBody2D: {fileID: 0}
   Speed: 1
   weapon: {fileID: 5740593752528541046}
@@ -828,6 +818,12 @@ PrefabInstance:
       propertyPath: Flipped
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1450475832240491409, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 2009231868587620688, guid: 10c2230fa89e5694d8b26032d12b8f1c,
+        type: 3}
     - target: {fileID: 6406476333899127736, guid: a9226b4fbe471234999b3edf9ddca44d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -837,26 +833,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4701848346597336496, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4701848346597336496, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398209303394131342, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3398209303394131342, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 736116120870880431, guid: a9226b4fbe471234999b3edf9ddca44d,
         type: 3}
@@ -928,21 +904,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2584372663434482906, guid: a9226b4fbe471234999b3edf9ddca44d,
         type: 3}
       propertyPath: m_Color.a
@@ -962,6 +923,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701848346597336496, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701848346597336496, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398209303394131342, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398209303394131342, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3530555293076893131, guid: a9226b4fbe471234999b3edf9ddca44d, type: 3}
