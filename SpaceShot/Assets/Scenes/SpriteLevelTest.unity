@@ -213,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720611507}
   - component: {fileID: 1720611506}
+  - component: {fileID: 1720611508}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -242,6 +243,9 @@ MonoBehaviour:
     type: 3}
   Hazard: {fileID: 4264662652247296128, guid: b690f02825ec9ad4980bdd935d46fa69, type: 3}
   Player: {fileID: 5390794529886969460, guid: c5468c7a88db77247a762a33162a006c, type: 3}
+  IndestructibleColor: {r: 0.49019608, g: 0.39088646, b: 0.39088646, a: 1}
+  DestructibleColor: {r: 0.36445352, g: 0.36445352, b: 0.735849, a: 1}
+  HazardColor: {r: 0.8867924, g: 0.8867924, b: 0.29699183, a: 1}
 --- !u!4 &1720611507
 Transform:
   m_ObjectHideFlags: 0
@@ -256,3 +260,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720611508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720611505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3830d29cd4f08f245baf75d5aedb304a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartLevel: 0
+  SentityPrefab: {fileID: 0}
+  Config: {fileID: 11400000, guid: 2fd9e356fc6527c4cb6286498b9c12b5, type: 2}
+  Levels: []
